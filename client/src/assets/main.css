@@ -1,0 +1,29 @@
+:root {
+  --ontario-tech-orange: #e75d2a;
+  --ontario-tech-light-blue: #0077ca;
+  --ontario-tech-blue: #003c71;
+  --ontario-tech-dark-blue: #042a4b;
+  --ontario-tech-light-grey: #edeeee;
+}
+
+body {
+  margin: 0;
+  font-family: 'Ubuntu', Arial, Helvetica, sans-serif;
+  background-color: #f7f9fc;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  transition: filter 0.3s !important;
+}
+
+button:hover {
+  filter: brightness(0.9);
+}
+
+.section-title {
+  color: var(--ontario-tech-blue) !important;
+}

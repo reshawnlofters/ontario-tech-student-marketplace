@@ -1,11 +1,28 @@
-<script setup></script>
+<script setup>
+import AppNavbar from './components/general/AppNavbar.vue'
+import AppFooter from './components/general/AppFooter.vue'
+</script>
 
 <template>
-  <h1>You did it!</h1>
-  <p>
-    Visit <a href="https://vuejs.org/" target="_blank" rel="noopener">vuejs.org</a> to read the
-    documentation
-  </p>
+  <div class="app-shell">
+    <AppNavbar />
+
+    <main class="main-content">
+      <RouterView />
+    </main>
+
+    <AppFooter />
+  </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+}
+</style>
