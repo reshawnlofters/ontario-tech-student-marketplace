@@ -3,7 +3,7 @@
     <section class="footer-brand-section">
       <img
         src="../../../public/images/ontario-tech-university-logo.png"
-        alt="ontario tech university logo"
+        alt="Ontario Tech University logo"
       />
     </section>
     <section class="footer-description-section">

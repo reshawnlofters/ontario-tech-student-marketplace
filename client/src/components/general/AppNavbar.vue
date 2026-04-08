@@ -10,7 +10,7 @@
       <RouterLink to="/" class="navbar-menu-item">Home</RouterLink>
       <RouterLink to="/wishlist" class="navbar-menu-item">Wishlist</RouterLink>
       <RouterLink to="/list-item" class="navbar-menu-item">List Item</RouterLink>
-      <RouterLink to="/cart" class="navbar-menu-item">Cart</RouterLink>
+      <RouterLink to="/cart" class="navbar-menu-item">Checkout</RouterLink>
       <RouterLink to="/orders" class="navbar-menu-item">Orders</RouterLink>
     </section>
   </nav>
@@ -22,7 +22,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: var(--ontario-tech-dark-blue);
+  background-color: var(--otu-dark-blue);
   padding: 0 2.5rem;
 }
 
@@ -42,6 +42,6 @@
 }
 
 .navbar-menu-item:hover {
-  color: var(--ontario-tech-orange);
+  color: var(--otu-orange);
 }
 </style>

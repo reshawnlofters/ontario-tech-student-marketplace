@@ -2,7 +2,7 @@ const readJsonFile = require('../utils/readJsonFile');
 const writeJsonFile = require('../utils/writeJsonFile');
 const generateId = require('../utils/generateId');
 
-async function getAllItems() {
+async function getItems() {
   return await readJsonFile('data/items.json');
 }
 
@@ -15,10 +15,10 @@ async function createItem(data) {
     category: data.category,
     condition: data.condition,
     price: data.price,
-    imageUrl: data.imageUrl || 'https://via.placeholder.com/300x200',
+    image: data.image,
     description: data.description,
     sellerName: data.sellerName || 'Anonymous',
-    campusTag: data.campusTag || 'Campus Pickup',
+    campusTag: data.campusTag,
     createdAt: new Date().toISOString(),
     featured: false,
   };
@@ -31,6 +31,6 @@ async function createItem(data) {
 }
 
 module.exports = {
-  getAllItems,
+  getItems,
   createItem,
 };

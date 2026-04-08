@@ -142,7 +142,7 @@ onBeforeUnmount(() => {
 }
 
 .hero-title span {
-  color: var(--ontario-tech-orange);
+  color: var(--otu-orange);
 }
 
 .hero-subtitle {
@@ -172,13 +172,13 @@ onBeforeUnmount(() => {
 }
 
 .browse-listings-button {
-  background-color: var(--ontario-tech-orange);
+  background-color: var(--otu-orange);
   color: white;
 }
 
 .list-an-item-button {
   background-color: white;
-  color: var(--ontario-tech-blue);
+  color: var(--otu-blue);
 }
 
 .hero-visual {
@@ -198,7 +198,7 @@ onBeforeUnmount(() => {
 
 .hero-card-title {
   font-weight: 700;
-  color: var(--ontario-tech-dark-blue);
+  color: var(--otu-dark-blue);
   margin-top: 0.75rem;
 }
 

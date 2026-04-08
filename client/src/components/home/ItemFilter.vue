@@ -15,7 +15,7 @@ defineEmits(['update:selectedCategory'])
 
 <template>
   <div class="field">
-    <label class="label">Filter by Category</label>
+    <label class="section-title label">Filter by Category</label>
     <div class="control">
       <div class="select is-fullwidth">
         <select
@@ -34,13 +34,13 @@ defineEmits(['update:selectedCategory'])
 </template>
 
 <style scoped>
-.label {
-  color: var(--ontario-tech-blue);
+.section-title {
+  font-size: 17px !important;
 }
 
 .filter-container {
   background-color: white;
   color: black;
-  border: 1px solid rgb(211, 211.5, 212.5);
+  border: 1px solid var(--otu-input-border);
 }
 </style>

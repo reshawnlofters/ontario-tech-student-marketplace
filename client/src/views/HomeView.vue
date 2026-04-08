@@ -1,10 +1,11 @@
 <script setup>
 import { computed, onMounted, ref } from 'vue'
 import { getItems } from '../services/itemsService'
+import { addItemToCart } from '../services/cartService'
 import HeroBanner from '../components/home/HeroBanner.vue'
-import ItemGrid from '../components/home/ItemGrid.vue'
 import ItemSearchBar from '../components/home/ItemSearchBar.vue'
 import ItemFilter from '../components/home/ItemFilter.vue'
+import ItemGrid from '../components/home/ItemGrid.vue'
 
 const items = ref([])
 const isLoadingFlag = ref(true)
@@ -40,6 +41,18 @@ const filteredItems = computed(() => {
     return searchItemMatch && itemCategoryMatch
   })
 })
+
+async function handleAddItemToCart(item) {
+  successMessage.value = ''
+  cartErrorMessage.value = ''
+
+  try {
+    await addItemToCart(item.id, 1)
+    successMessage.value = `${item.title} was added to your cart.`
+  } catch (error) {
+    cartErrorMessage.value = error.message || 'Failed to add item to the cart.'
+  }
+}
 </script>
 
 <template>
@@ -82,7 +95,7 @@ const filteredItems = computed(() => {
           <div class="level mb-4">
             <div class="level-left">
               <div>
-                <h2 class="section-title title is-3 mb-3">Current Listings</h2>
+                <h2 class="page-title title is-3">Current Listings</h2>
                 <p class="has-text-grey is-size-6">Showing {{ filteredItems.length }} item(s)</p>
               </div>
             </div>
@@ -92,7 +105,7 @@ const filteredItems = computed(() => {
             No items match your current search or filter.
           </div>
 
-          <ItemGrid v-else :items="filteredItems" />
+          <ItemGrid v-else :items="filteredItems" @add-to-cart="handleAddItemToCart" />
         </section>
       </div>
     </div>
@@ -101,6 +114,6 @@ const filteredItems = computed(() => {
 
 <style scoped>
 .search-filter-container {
-  background-color: var(--ontario-tech-light-grey);
+  background-color: var(--otu-light-grey);
 }
 </style>

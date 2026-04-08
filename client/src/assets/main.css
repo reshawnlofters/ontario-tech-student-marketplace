@@ -1,9 +1,10 @@
 :root {
-  --ontario-tech-orange: #e75d2a;
-  --ontario-tech-light-blue: #0077ca;
-  --ontario-tech-blue: #003c71;
-  --ontario-tech-dark-blue: #042a4b;
-  --ontario-tech-light-grey: #edeeee;
+  --otu-orange: #e75d2a;
+  --otu-light-blue: #0077ca;
+  --otu-blue: #003c71;
+  --otu-dark-blue: #042a4b;
+  --otu-light-grey: #edeeee;
+  --otu-input-border: rgb(211, 211.5, 212.5);
 }
 
 body {
@@ -17,6 +18,7 @@ a {
 }
 
 button {
+  border-radius: 6px !important;
   transition: filter 0.3s !important;
 }
 
@@ -24,6 +26,26 @@ button:hover {
   filter: brightness(0.9);
 }
 
+input, select {
+  height: 44px !important;
+}
+
+.page-title,
 .section-title {
-  color: var(--ontario-tech-blue) !important;
+  color: var(--otu-blue) !important;
+  margin-bottom: 12px !important;
+}
+
+.page-title {
+  margin-bottom: 12px !important;
+}
+
+.section-title {
+  font-size: 18px !important;
+  font-weight: 600 !important;
+}
+
+.section-label {
+  color: black;
+  font-weight: 600;
 }

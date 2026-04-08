@@ -1,0 +1,20 @@
+[
+  {
+    "id": "cart-1775583312614",
+    "itemId": "item-001",
+    "quantity": 1,
+    "addedAt": "2026-04-07T17:35:12.614Z"
+  },
+  {
+    "id": "cart-1775587029264",
+    "itemId": "item-003",
+    "quantity": 1,
+    "addedAt": "2026-04-07T18:37:09.264Z"
+  },
+  {
+    "id": "cart-1775606623628",
+    "itemId": "item-002",
+    "quantity": 1,
+    "addedAt": "2026-04-08T00:03:43.628Z"
+  }
+]
