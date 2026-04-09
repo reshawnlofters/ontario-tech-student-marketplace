@@ -10,7 +10,7 @@ async function createItem(data) {
   const items = await readJsonFile('data/items.json');
 
   const newItem = {
-    id: generateId('item'),
+    id: generateId(),
     title: data.title,
     category: data.category,
     condition: data.condition,

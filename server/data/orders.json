@@ -1,0 +1,31 @@
+[
+  {
+    "id": "1775761652866",
+    "items": [
+      {
+        "itemId": "003",
+        "image": "./images/items/red-jansport-1990s-backpack.jpg",
+        "title": "Vintage Jansport Backpack",
+        "price": 30,
+        "quantity": 1,
+        "total": 30
+      },
+      {
+        "itemId": "002",
+        "image": "./images/items/basketball.jpg",
+        "title": "Wilson Basketball",
+        "price": 20,
+        "quantity": 1,
+        "total": 20
+      }
+    ],
+    "subtotal": 50,
+    "discountCode": "",
+    "discountPercentage": 0,
+    "discountAmount": 0,
+    "total": 50,
+    "paymentMethod": "Mastercard ending in 1234",
+    "deliveryMethod": "Campus Pickup",
+    "createdAt": "2026-04-09T19:07:32.866Z"
+  }
+]

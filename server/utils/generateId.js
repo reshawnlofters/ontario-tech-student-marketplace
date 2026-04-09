@@ -1,5 +1,5 @@
-function generateId(prefix) {
-  return `${prefix}-${Date.now()}`;
+function generateId() {
+  return `${Date.now()}`;
 }
 
 module.exports = generateId;

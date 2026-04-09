@@ -24,7 +24,7 @@ async function addCartItem(itemId, quantity = 1) {
   }
 
   const newCartItem = {
-    id: generateId('cart'),
+    id: generateId(),
     itemId,
     quantity,
     addedAt: new Date().toISOString(),

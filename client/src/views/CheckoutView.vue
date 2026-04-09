@@ -2,6 +2,7 @@
 import { computed, onMounted, ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { getCart, removeCartItem, updateCartItemQuantity } from '../services/cartService'
+import { createOrder } from '../services/ordersService'
 import CartItemRow from '../components/checkout/CartItemRow.vue'
 import CartSummaryPanel from '../components/checkout/CartSummaryPanel.vue'
 import PaymentDetailsPanel from '../components/checkout/PaymentDetailsPanel.vue'
@@ -33,7 +34,7 @@ onMounted(async () => {
 })
 
 const subtotal = computed(() => {
-  return cartItems.value.reduce((sum, cartItem) => sum + cartItem.lineTotal, 0)
+  return cartItems.value.reduce((sum, cartItem) => sum + cartItem.total, 0)
 })
 
 const discountPercent = computed(() => {

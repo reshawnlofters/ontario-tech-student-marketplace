@@ -1,6 +1,6 @@
 [
   {
-    "id": "item-001",
+    "id": "001",
     "title": "Adidas Water Bottle",
     "category": "Merchandise",
     "condition": "Good Condition",
@@ -13,8 +13,8 @@
     "featured": true
   },
   {
-    "id": "item-002",
-    "title": "Wilson Backsetball",
+    "id": "002",
+    "title": "Wilson Basketball",
     "category": "Sports",
     "condition": "Great Condition",
     "price": 20,
@@ -26,7 +26,7 @@
     "featured": true
   },
   {
-    "id": "item-003",
+    "id": "003",
     "title": "Vintage Jansport Backpack",
     "category": "Accessories",
     "condition": "Good Condition",
@@ -39,7 +39,7 @@
     "featured": false
   },
   {
-    "id": "item-004",
+    "id": "004",
     "title": "TurboAnt Electric Scooter",
     "category": "Transportation",
     "condition": "Good Condition",
@@ -52,7 +52,7 @@
     "featured": false
   },
   {
-    "id": "item-005",
+    "id": "005",
     "title": "Toronto Raptors Jersey",
     "category": "Clothing",
     "condition": "Great Condition",
@@ -65,7 +65,7 @@
     "featured": false
   },
   {
-    "id": "item-006",
+    "id": "006",
     "title": "20-inch Gloss Black Rims",
     "category": "Car",
     "condition": "Like New",

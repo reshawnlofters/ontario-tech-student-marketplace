@@ -23,7 +23,7 @@ async function getCart(request, response) {
               sellerName: item.sellerName,
             }
           : null,
-        lineTotal: item ? item.price * cartItem.quantity : 0,
+        total: item ? item.price * cartItem.quantity : 0,
       };
     });
 
