@@ -24,21 +24,21 @@ defineEmits(['add-to-cart'])
 </template>
 
 <style scoped>
-@media screen and (max-width: 1435px) {
+@media screen and (width <= 1435px) {
   .column.custom-grid-item.is-3-desktop {
     flex: none;
     width: 33.3333%;
   }
 }
 
-@media screen and (max-width: 1220px) {
+@media screen and (width <= 1220px) {
   .column.custom-grid-item.is-3-desktop {
     flex: none;
     width: 50%;
   }
 }
 
-@media screen and (max-width: 770px) {
+@media screen and (width <= 770px) {
   .column.custom-grid-item.is-3-desktop {
     flex: none;
     width: 100%;

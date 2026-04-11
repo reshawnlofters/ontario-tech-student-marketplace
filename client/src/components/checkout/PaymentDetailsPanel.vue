@@ -12,17 +12,17 @@
 
 <style scoped>
 .payment-details-container {
-  font-size: 18px;
-  background-color: var(--otu-light-grey);
-  color: black;
-  border-radius: 10px;
   padding: 1.5rem;
   margin-bottom: 1.5rem;
+  font-size: 1.125rem;
+  color: black;
+  background-color: var(--otu-light-grey);
+  border-radius: 0.75rem;
 }
 
 .section-label-container {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 0.75rem;
 }
 </style>

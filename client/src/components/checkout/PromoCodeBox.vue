@@ -27,17 +27,17 @@ defineEmits(['update:modelValue'])
 
 <style scoped>
 .promo-code-box-container {
-  background-color: var(--otu-light-grey);
-  border-radius: 10px;
   padding: 1.5rem;
   margin-bottom: 1.5rem;
+  background-color: var(--otu-light-grey);
+  border-radius: 0.75rem;
 }
 
 .promo-code-box-input-container {
-  background-color: white;
-  color: black;
-  border: 1px solid var(--otu-input-border);
   margin-bottom: 9px;
+  color: black;
+  background-color: white;
+  border: 1px solid var(--otu-input-border);
 }
 
 ::placeholder {

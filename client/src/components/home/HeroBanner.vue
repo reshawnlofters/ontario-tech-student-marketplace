@@ -28,7 +28,7 @@ onMounted(() => {
   let index = 0
 
   function showNextMessage() {
-    const el = $('#promo-text')
+    const el = $('#promo-message-text')
 
     el.fadeOut(400, () => {
       index = (index + 1) % promoMessages.length
@@ -36,10 +36,10 @@ onMounted(() => {
     })
   }
 
-  intervalId = setInterval(showNextMessage, 3000)
+  intervalId = setInterval(showNextMessage, 5000)
 
-  // Pause on hover
-  $('.promo-pill').hover(
+  // Pause rotation on hover
+  $('.promo-message-tag').hover(
     () => clearInterval(intervalId),
     () => {
       intervalId = setInterval(showNextMessage, 3000)
@@ -58,7 +58,7 @@ onBeforeUnmount(() => {
       <div class="column is-7">
         <p class="hero-tag">Ontario Tech Student Marketplace</p>
 
-        <h1 class="title is-2 hero-title">
+        <h1 class="page-title title is-2 hero-title">
           Buy and sell used student items at a
           <span>fraction of the cost</span>.
         </h1>
@@ -68,9 +68,9 @@ onBeforeUnmount(() => {
           including clothing, accessories, school supplies, and more.
         </p>
 
-        <!-- Rotating promo messages using JQuery -->
-        <div class="promo-pill mb-4">
-          <span id="promo-text">Use code OTSM10 at checkout for 10% off your order</span>
+        <!-- Rotating promo messages -->
+        <div class="promo-message-tag mb-4">
+          <span id="promo-message-text">Use code OTSM10 at checkout for 10% off your order</span>
         </div>
 
         <div class="buttons">
@@ -115,21 +115,25 @@ onBeforeUnmount(() => {
 
 <style scoped>
 .hero-banner {
-  background: linear-gradient(135deg, #0b2e4f 0%, #123f6b 55%, #1b5e91 100%);
-  color: white;
-  border-radius: 20px;
-  overflow: hidden;
   position: relative;
   padding: 2.5rem;
+  overflow: hidden;
+  color: white;
+  background: linear-gradient(135deg, #0b2e4f 0%, #123f6b 55%, #1b5e91 100%);
+  border-radius: 0.75rem;
+}
+
+.hero-banner .page-title {
+  color: white !important;
 }
 
 .hero-tag {
+  margin-bottom: 1rem;
   font-size: 0.85rem;
   font-weight: 700;
   color: #a9d8f5;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  margin-bottom: 1rem;
 }
 
 .hero-title,
@@ -146,39 +150,38 @@ onBeforeUnmount(() => {
 }
 
 .hero-subtitle {
-  font-size: 16px;
+  font-size: 1rem;
 }
 
-.promo-pill {
+.promo-message-tag {
   display: inline-block;
-  background-color: rgba(255, 255, 255, 0.14);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 100px;
-  padding: 0.7rem 1rem;
-  margin-bottom: 24px !important;
+  padding: 0.75rem 1.125rem;
+  margin-bottom: 1.5rem !important;
+  background-color: rgb(255 255 255 / 14%);
+  border: 1px solid rgb(255 255 255 / 18%);
+  border-radius: 1.125rem;
 }
 
-#promo-text {
+#promo-message-text {
   display: inline-block;
   transition: opacity 0.3s ease;
 }
 
 .browse-listings-button,
 .list-an-item-button {
-  font-size: 18px;
+  padding: 0.75rem 1.125rem;
+  font-size: 1.125rem;
   font-weight: bold;
-  border-radius: 6px;
-  padding: 12px 18px;
 }
 
 .browse-listings-button {
-  background-color: var(--otu-orange);
   color: white;
+  background-color: var(--otu-orange);
 }
 
 .list-an-item-button {
-  background-color: white;
   color: var(--otu-blue);
+  background-color: white;
 }
 
 .hero-visual {
@@ -189,17 +192,17 @@ onBeforeUnmount(() => {
 .hero-card {
   position: absolute;
   width: 220px;
-  background: white;
-  color: #1f2937;
-  border-radius: 18px;
   padding: 1rem;
-  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.25);
+  color: #1f2937;
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 16px 32px rgb(0 0 0 / 25%);
 }
 
 .hero-card-title {
+  margin-top: 0.75rem;
   font-weight: 700;
   color: var(--otu-dark-blue);
-  margin-top: 0.75rem;
 }
 
 .hero-card-price {
@@ -213,11 +216,11 @@ onBeforeUnmount(() => {
 
 .hero-card-middle {
   top: 100px;
-  left: 0px;
+  left: 0;
 }
 
 .hero-card-bottom {
   top: 170px;
-  right: 0px;
+  right: 0;
 }
 </style>

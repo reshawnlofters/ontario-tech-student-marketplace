@@ -18,12 +18,12 @@
 
 <style scoped>
 .navbar {
-  height: 90px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  background-color: var(--otu-dark-blue);
+  justify-content: space-between;
+  height: 90px;
   padding: 0 2.5rem;
+  background-color: var(--otu-dark-blue);
 }
 
 .navbar-brand-section img {
@@ -32,12 +32,13 @@
 
 .navbar-menu-section {
   display: flex;
-  justify-content: space-between;
   gap: 2rem;
+  justify-content: space-between;
 }
 
 .navbar-menu-item {
-  font-size: 16px;
+  font-family: Ubuntu, Arial, Helvetica, sans-serif;
+  font-size: 1rem;
   color: white;
 }
 

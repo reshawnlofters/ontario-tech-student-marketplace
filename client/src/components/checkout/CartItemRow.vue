@@ -42,7 +42,7 @@ defineEmits(['update-quantity', 'remove-item'])
 
       <div class="column is-3">
         <p class="mb-2">
-          <span class="section-label">Total</span>: ${{ cartItem.lineTotal.toFixed(2) }}
+          <span class="section-label">Total</span>: ${{ cartItem.total.toFixed(2) }}
         </p>
         <button
           class="remove-cart-item-button button is-danger is-light"
@@ -60,19 +60,19 @@ defineEmits(['update-quantity', 'remove-item'])
   display: flex;
   justify-content: center;
   height: 200px;
-  font-size: 18px;
-  background-color: var(--otu-light-grey);
-  color: black !important;
   padding: 2rem;
+  font-size: 1.125rem;
+  color: black !important;
+  background-color: var(--otu-light-grey);
 }
 
 .cart-item-image img {
-  border-radius: 6px;
+  border-radius: 0.375rem;
 }
 
 .cart-item-title,
 .cart-item-quantity-label {
-  font-size: 18px;
+  font-size: 1.125rem;
   color: var(--otu-blue);
 }
 
@@ -81,14 +81,14 @@ defineEmits(['update-quantity', 'remove-item'])
 }
 
 .cart-item-quantity-input-container {
-  background-color: white;
   color: black;
+  background-color: white;
   border: 1px solid var(--otu-input-border);
 }
 
 .remove-cart-item-button {
-  height: 44px;
   width: 100%;
+  height: 44px;
   border: 1px solid #800019;
 }
 

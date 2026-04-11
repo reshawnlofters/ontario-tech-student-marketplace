@@ -30,8 +30,8 @@ defineEmits(['update:modelValue'])
 }
 
 .search-bar-container {
-  background-color: white;
   color: black;
+  background-color: white;
   border: 1px solid var(--otu-input-border);
 }
 

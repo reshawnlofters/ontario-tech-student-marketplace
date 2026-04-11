@@ -53,25 +53,25 @@ const emit = defineEmits(['add-to-cart'])
 }
 
 .card-content {
-  font-size: 18px;
+  font-size: 1.125rem;
   background-color: var(--otu-light-grey) !important;
 }
 
 .item-title {
-  font-size: 18px;
+  font-size: 1.125rem;
   font-weight: bold;
   color: var(--otu-blue);
 }
 
 .item-price {
-  margin-bottom: 12px;
+  margin-bottom: 0.75rem;
 }
 
 .section-label-container {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  margin-bottom: 24px;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
 }
 
 .button-container {
@@ -80,10 +80,10 @@ const emit = defineEmits(['add-to-cart'])
 
 .add-to-cart-button,
 .add-to-wishlist-button {
-  height: 44px;
   width: 40%;
+  height: 44px;
+  padding: 0.75rem 1.125rem;
   font-weight: bold;
-  padding: 10px 18px;
 }
 
 .add-to-cart-button {
@@ -92,8 +92,8 @@ const emit = defineEmits(['add-to-cart'])
 }
 
 .add-to-wishlist-button {
-  background-color: white;
   color: var(--otu-blue);
+  background-color: white;
   border: 1px solid var(--otu-blue);
 }
 </style>

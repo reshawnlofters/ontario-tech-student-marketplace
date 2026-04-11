@@ -1,24 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap');
+
 :root {
   --otu-orange: #e75d2a;
   --otu-light-blue: #0077ca;
   --otu-blue: #003c71;
   --otu-dark-blue: #042a4b;
   --otu-light-grey: #edeeee;
-  --otu-input-border: rgb(211, 211.5, 212.5);
+  --otu-input-border: rgb(211 211.5 212.5);
 }
 
 body {
   margin: 0;
-  font-family: 'Ubuntu', Arial, Helvetica, sans-serif;
-  background-color: #f7f9fc;
+  background-color: white;
+  text-rendering: optimizelegibility !important;
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
 }
 
-a {
-  text-decoration: none;
+.page-title,
+button {
+  font-family: Ubuntu, Arial, Helvetica, sans-serif !important;
+}
+
+.page-title,
+.section-title {
+  margin-bottom: 0.75rem !important;
+  color: var(--otu-blue) !important;
+}
+
+.page-title {
+  font-weight: 800 !important;
+}
+
+.section-title {
+  font-size: 1.125rem !important;
+  font-weight: 600 !important;
+}
+
+.section-label {
+  font-weight: 600;
+  color: black;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }
 
 button {
-  border-radius: 6px !important;
+  border-radius: 0.375rem !important;
   transition: filter 0.3s !important;
 }
 
@@ -26,26 +61,11 @@ button:hover {
   filter: brightness(0.9);
 }
 
-input, select {
+input,
+select {
   height: 44px !important;
 }
 
-.page-title,
-.section-title {
-  color: var(--otu-blue) !important;
-  margin-bottom: 12px !important;
-}
-
-.page-title {
-  margin-bottom: 12px !important;
-}
-
-.section-title {
-  font-size: 18px !important;
-  font-weight: 600 !important;
-}
-
-.section-label {
-  color: black;
-  font-weight: 600;
+a {
+  text-decoration: none;
 }

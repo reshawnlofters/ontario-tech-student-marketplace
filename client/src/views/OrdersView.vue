@@ -81,10 +81,10 @@ onMounted(async () => {
 
 <style scoped>
 .order-container {
-  font-size: 1.125rem;
-  background-color: var(--otu-light-grey);
-  color: black;
   padding: 2rem;
+  font-size: 1.125rem;
+  color: black;
+  background-color: var(--otu-light-grey);
 }
 
 .order-title {
@@ -109,9 +109,9 @@ onMounted(async () => {
 
 .order-item-table th,
 td {
+  padding: 15px 25px;
   border-bottom-color: #d9d9d962;
   border-bottom-width: 1px;
-  padding: 15px 25px;
 }
 
 .order-item-table th {
@@ -124,9 +124,9 @@ td {
 }
 
 .order-item-image {
-  height: 100px;
   width: 100px;
-  border-radius: 0.375rem;
+  height: 100px;
   object-fit: cover;
+  border-radius: 0.375rem;
 }
 </style>

@@ -6,6 +6,7 @@ import HeroBanner from '../components/home/HeroBanner.vue'
 import ItemSearchBar from '../components/home/ItemSearchBar.vue'
 import ItemFilter from '../components/home/ItemFilter.vue'
 import ItemGrid from '../components/home/ItemGrid.vue'
+import flashMessage from '../utils/flashMessage'
 
 const items = ref([])
 const isLoadingFlag = ref(true)
@@ -48,9 +49,10 @@ async function handleAddItemToCart(item) {
 
   try {
     await addItemToCart(item.id, 1)
-    successMessage.value = `${item.title} was added to your cart.`
+    flashMessage(successMessage, `${item.title} was added to your cart.`)
   } catch (error) {
-    cartErrorMessage.value = error.message || 'Failed to add item to the cart.'
+    message = error.message || 'Failed to add item to the cart.'
+    flashMessage(cartErrorMessage, message)
   }
 }
 </script>
@@ -76,13 +78,17 @@ async function handleAddItemToCart(item) {
         </div>
       </div>
 
-      <div v-if="successMessage" class="notification is-success is-light">
-        {{ successMessage }}
-      </div>
+      <Transition name="fade">
+        <div v-if="successMessage" class="notification is-success is-light">
+          {{ successMessage }}
+        </div>
+      </Transition>
 
-      <div v-if="cartErrorMessage" class="notification is-danger is-light">
-        {{ cartErrorMessage }}
-      </div>
+      <Transition name="fade">
+        <div v-if="cartErrorMessage" class="notification is-danger is-light">
+          {{ cartErrorMessage }}
+        </div>
+      </Transition>
 
       <div v-if="isLoadingFlag" class="notification is-info is-light">Loading items...</div>
 

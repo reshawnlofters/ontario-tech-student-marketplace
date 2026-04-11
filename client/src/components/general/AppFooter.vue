@@ -17,12 +17,12 @@
 
 <style scoped>
 .footer {
-  height: 150px;
   display: flex;
   justify-content: space-between;
-  background-color: #5b6770 !important;
-  color: white;
+  height: 150px;
   padding: 0 2.5rem;
+  color: white;
+  background-color: #5b6770 !important;
 }
 
 .footer-brand-section,

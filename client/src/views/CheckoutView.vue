@@ -7,6 +7,7 @@ import CartItemRow from '../components/checkout/CartItemRow.vue'
 import CartSummaryPanel from '../components/checkout/CartSummaryPanel.vue'
 import PaymentDetailsPanel from '../components/checkout/PaymentDetailsPanel.vue'
 import PromoCodeBox from '../components/checkout/PromoCodeBox.vue'
+import flashMessage from '../utils/flashMessage'
 
 const router = useRouter()
 
@@ -57,10 +58,11 @@ async function handleUpdateCartItemQuantity(cartItemId, quantity) {
 
   try {
     await updateCartItemQuantity(cartItemId, quantity)
-    successMessage.value = 'Cart item updated successfully.'
+    flashMessage(successMessage, 'Cart item updated successfully.')
     await loadCart()
   } catch (error) {
-    errorMessage.value = error.message || 'Failed to update cart item.'
+    message = error.message || 'Failed to update cart item.'
+    flashMessage(errorMessage, message)
   }
 }
 
@@ -70,10 +72,11 @@ async function handleRemoveCartItem(cartItemId) {
 
   try {
     await removeCartItem(cartItemId)
-    successMessage.value = 'Item removed from cart.'
+    flashMessage(successMessage, 'Item was removed from your cart.')
     await loadCart()
   } catch (error) {
-    errorMessage.value = error.message || 'Failed to remove cart item.'
+    message = error.message || 'Failed to remove cart item.'
+    flashMessage(errorMessage, message)
   }
 }
 
@@ -89,7 +92,7 @@ async function handleCheckout() {
       deliveryMethod: 'Campus Pickup',
     })
 
-    successMessage.value = 'Order placed successfully! Redirecting...'
+    successMessage.value = 'Order placed successfully. Redirecting...'
 
     setTimeout(() => {
       router.push('/orders')
@@ -108,13 +111,17 @@ async function handleCheckout() {
       <h1 class="page-title title">Checkout</h1>
       <p class="subtitle has-text-grey is-size-6">Review your cart and place an order.</p>
 
-      <div v-if="successMessage" class="notification is-success is-light">
-        {{ successMessage }}
-      </div>
+      <Transition name="fade">
+        <div v-if="successMessage" class="notification is-success is-light">
+          {{ successMessage }}
+        </div>
+      </Transition>
 
-      <div v-if="errorMessage" class="notification is-danger is-light">
-        {{ errorMessage }}
-      </div>
+      <Transition name="fade">
+        <div v-if="errorMessage" class="notification is-danger is-light">
+          {{ errorMessage }}
+        </div>
+      </Transition>
 
       <div v-if="isLoading" class="notification is-info is-light">Loading cart...</div>
 
