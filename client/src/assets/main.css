@@ -53,6 +53,8 @@ button {
 }
 
 button {
+  height: 44px !important;
+  font-weight: bold !important;
   border-radius: 0.375rem !important;
   transition: filter 0.3s !important;
 }

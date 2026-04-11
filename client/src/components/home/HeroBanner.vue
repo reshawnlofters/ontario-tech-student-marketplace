@@ -36,7 +36,7 @@ onMounted(() => {
     })
   }
 
-  intervalId = setInterval(showNextMessage, 5000)
+  intervalId = setInterval(showNextMessage, 6000)
 
   // Pause rotation on hover
   $('.promo-message-tag').hover(
@@ -171,7 +171,6 @@ onBeforeUnmount(() => {
 .list-an-item-button {
   padding: 0.75rem 1.125rem;
   font-size: 1.125rem;
-  font-weight: bold;
 }
 
 .browse-listings-button {

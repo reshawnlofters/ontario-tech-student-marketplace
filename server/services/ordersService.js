@@ -63,7 +63,19 @@ async function createOrder({ discountCode = '', paymentMethod, deliveryMethod })
   return newOrder;
 }
 
+async function removeOrder(orderId) {
+  const orders = await readJsonFile('data/orders.json');
+  const filteredOrders = orders.filter((order) => order.id !== orderId);
+
+  if (filteredOrders.length === orders.length) {
+    throw new Error('Order not found');
+  }
+
+  await writeJsonFile('data/orders.json', filteredOrders);
+}
+
 module.exports = {
   getOrders,
   createOrder,
+  removeOrder,
 };

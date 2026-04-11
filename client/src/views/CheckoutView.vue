@@ -13,8 +13,8 @@ const router = useRouter()
 
 const cartItems = ref([])
 const isLoading = ref(true)
-const errorMessage = ref('')
 const successMessage = ref('')
+const errorMessage = ref('')
 const isSubmittingOrder = ref(false)
 const promoCode = ref('')
 
@@ -61,7 +61,7 @@ async function handleUpdateCartItemQuantity(cartItemId, quantity) {
     flashMessage(successMessage, 'Cart item updated successfully.')
     await loadCart()
   } catch (error) {
-    message = error.message || 'Failed to update cart item.'
+    const message = error.message || 'Failed to update cart item.'
     flashMessage(errorMessage, message)
   }
 }
@@ -75,7 +75,7 @@ async function handleRemoveCartItem(cartItemId) {
     flashMessage(successMessage, 'Item was removed from your cart.')
     await loadCart()
   } catch (error) {
-    message = error.message || 'Failed to remove cart item.'
+    const message = error.message || 'Failed to remove cart item.'
     flashMessage(errorMessage, message)
   }
 }
@@ -126,7 +126,8 @@ async function handleCheckout() {
       <div v-if="isLoading" class="notification is-info is-light">Loading cart...</div>
 
       <div v-else-if="cartItems.length === 0" class="notification is-warning is-light">
-        Your cart is currently empty.
+        Your cart is empty. Visit the
+        <RouterLink to="/">homepage</RouterLink> to browse listings.
       </div>
 
       <div v-else class="columns is-align-start">

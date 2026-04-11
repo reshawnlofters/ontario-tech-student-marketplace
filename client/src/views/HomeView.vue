@@ -51,7 +51,7 @@ async function handleAddItemToCart(item) {
     await addItemToCart(item.id, 1)
     flashMessage(successMessage, `${item.title} was added to your cart.`)
   } catch (error) {
-    message = error.message || 'Failed to add item to the cart.'
+    const message = error.message || 'Failed to add item to the cart.'
     flashMessage(cartErrorMessage, message)
   }
 }
@@ -108,7 +108,7 @@ async function handleAddItemToCart(item) {
           </div>
 
           <div v-if="filteredItems.length === 0" class="notification is-warning is-light">
-            No items match your current search or filter.
+            No items match your search or filter.
           </div>
 
           <ItemGrid v-else :items="filteredItems" @add-to-cart="handleAddItemToCart" />

@@ -81,9 +81,7 @@ const emit = defineEmits(['add-to-cart'])
 .add-to-cart-button,
 .add-to-wishlist-button {
   width: 40%;
-  height: 44px;
   padding: 0.75rem 1.125rem;
-  font-weight: bold;
 }
 
 .add-to-cart-button {

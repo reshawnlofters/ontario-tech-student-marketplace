@@ -88,8 +88,8 @@ defineEmits(['update-quantity', 'remove-item'])
 
 .remove-cart-item-button {
   width: 100%;
-  height: 44px;
   border: 1px solid #800019;
+  transition: 0.3s !important;
 }
 
 .remove-cart-item-button:hover {

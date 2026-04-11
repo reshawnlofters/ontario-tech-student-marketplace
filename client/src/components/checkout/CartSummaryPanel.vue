@@ -58,7 +58,6 @@ defineEmits(['checkout'])
 
 .place-order-button {
   padding: 10px 0;
-  font-weight: bold;
   background-color: var(--otu-orange);
 }
 </style>

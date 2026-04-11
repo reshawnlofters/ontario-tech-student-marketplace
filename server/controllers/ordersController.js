@@ -38,7 +38,25 @@ async function createOrder(request, response) {
   }
 }
 
+async function cancelOrder(request, response) {
+  try {
+    const { id } = request.params;
+    await ordersService.removeOrder(id);
+
+    response.status(200).json({
+      message: 'Order cancelled successfully',
+    });
+  } catch (error) {
+    if (error.message === 'Order not found') {
+      return response.status(404).json({ message: 'Order not found' });
+    }
+
+    response.status(500).json({ message: 'Failed to cancel order' });
+  }
+}
+
 module.exports = {
   getOrders,
   createOrder,
+  cancelOrder,
 };
