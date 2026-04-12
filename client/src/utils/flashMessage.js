@@ -10,7 +10,7 @@ const flashMessage = (messageElement, message) => {
   messageTimer = setTimeout(() => {
     messageElement.value = ''
     messageTimer = null
-  }, 5000)
+  }, 3000)
 }
 
 export default flashMessage

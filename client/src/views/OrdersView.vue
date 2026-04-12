@@ -165,7 +165,7 @@ async function handleCancelOrder(orderId) {
 
 .order-item-table th,
 td {
-  padding: 15px 25px;
+  padding: 1.25rem 1.875rem;
   border-bottom-color: #d9d9d962;
   border-bottom-width: 1px;
 }
@@ -175,7 +175,7 @@ td {
 }
 
 .order-item-table td {
-  padding-bottom: 8px;
+  padding-bottom: 0.9rem;
   color: black;
 }
 

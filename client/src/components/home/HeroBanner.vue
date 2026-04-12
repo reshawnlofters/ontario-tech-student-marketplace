@@ -20,9 +20,10 @@ function navigateToListItem() {
 
 onMounted(() => {
   const promoMessages = [
-    'Use code OTSM10 at checkout for 10% off your order',
-    "Browse this week's latest student listings",
-    'List your unused items and earn some extra cash',
+    'Use code OTSM10 for 10% off your order',
+    'Discover newly listed items from student sellers',
+    'Support Ontario Tech student sellers',
+    'List your items and start earning today',
   ]
 
   let index = 0
@@ -36,7 +37,7 @@ onMounted(() => {
     })
   }
 
-  intervalId = setInterval(showNextMessage, 6000)
+  intervalId = setInterval(showNextMessage, 7000)
 
   // Pause rotation on hover
   $('.promo-message-tag').hover(
@@ -59,18 +60,17 @@ onBeforeUnmount(() => {
         <p class="hero-tag">Ontario Tech Student Marketplace</p>
 
         <h1 class="page-title title is-2 hero-title">
-          Buy and sell used student items at a
-          <span>fraction of the cost</span>.
+          Shop <span>unique items</span> and <span>great deals</span> from Ontario Tech students.
         </h1>
 
         <p class="subtitle is-5 hero-subtitle">
-          OTSM is your one-stop shop for buying and selling used Ontario Tech student items,
-          including clothing, accessories, school supplies, and more.
+          OTSM is your campus marketplace for discovering items sold by Ontario Tech students, from
+          used items to products offered by student sellers.
         </p>
 
         <!-- Rotating promo messages -->
         <div class="promo-message-tag mb-4">
-          <span id="promo-message-text">Use code OTSM10 at checkout for 10% off your order</span>
+          <span id="promo-message-text">Use code OTSM10 for 10% off your order</span>
         </div>
 
         <div class="buttons">
@@ -97,7 +97,7 @@ onBeforeUnmount(() => {
           </div>
 
           <div class="hero-card hero-card-middle">
-            <span class="tag is-success is-light">Like New</span>
+            <span class="tag is-success is-light">New</span>
             <p class="hero-card-title">Ontario Tech Hoodie</p>
             <p class="hero-card-price">$35.00</p>
           </div>
