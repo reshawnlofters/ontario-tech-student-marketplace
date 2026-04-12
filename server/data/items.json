@@ -9,8 +9,7 @@
     "description": "Black Adidas water bottle.",
     "sellerName": "Stacy R.",
     "campusTag": "North Oshawa Campus",
-    "createdAt": "2026-04-03T16:00:00.000Z",
-    "featured": true
+    "createdDate": "4/3/2026, 1:00 PM"
   },
   {
     "id": "002",
@@ -22,8 +21,7 @@
     "description": "Wilson Evolution basketball.",
     "sellerName": "Jeremy D.",
     "campusTag": "North Oshawa Campus",
-    "createdAt": "2026-04-03T14:30:00.000Z",
-    "featured": true
+    "createdDate": "4/3/2026, 1:00 PM"
   },
   {
     "id": "003",
@@ -35,8 +33,7 @@
     "description": "Red Jansport 1990s backpack.",
     "sellerName": "Conner T.",
     "campusTag": "Downtown Oshawa Campus",
-    "createdAt": "2026-04-03T15:00:00.000Z",
-    "featured": false
+    "createdDate": "4/3/2026, 1:00 PM"
   },
   {
     "id": "004",
@@ -48,8 +45,7 @@
     "description": "TurboAnt M10 Pro scooter.",
     "sellerName": "Samantha L.",
     "campusTag": "North Oshawa Campus",
-    "createdAt": "2026-04-03T17:00:00.000Z",
-    "featured": false
+    "createdDate": "4/3/2026, 1:00 PM"
   },
   {
     "id": "005",
@@ -61,8 +57,7 @@
     "description": "2019 Kawhi Leonard Jersey.",
     "sellerName": "Dylan F.",
     "campusTag": "North Oshawa Campus",
-    "createdAt": "2026-04-03T17:00:00.000Z",
-    "featured": false
+    "createdDate": "4/3/2026, 1:00 PM"
   },
   {
     "id": "006",
@@ -74,7 +69,6 @@
     "description": "Set of 20-inch gloss black rims.",
     "sellerName": "Donovan L.",
     "campusTag": "Downtown Oshawa Campus",
-    "createdAt": "2026-04-03T17:00:00.000Z",
-    "featured": false
+    "createdDate": "4/3/2026, 1:00 PM"
   }
 ]

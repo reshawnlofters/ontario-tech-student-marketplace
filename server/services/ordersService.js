@@ -1,6 +1,7 @@
 const readJsonFile = require('../utils/readJsonFile');
 const writeJsonFile = require('../utils/writeJsonFile');
 const generateId = require('../utils/generateId');
+const getDate = require('../utils/getDate');
 const cartService = require('./cartService');
 
 function getDiscountPercentage(discountCode) {
@@ -53,7 +54,7 @@ async function createOrder({ discountCode = '', paymentMethod, deliveryMethod })
     total,
     paymentMethod,
     deliveryMethod,
-    createdAt: new Date().toISOString(),
+    createdDate: getDate(),
   };
 
   orders.unshift(newOrder);

@@ -81,10 +81,7 @@ async function handleCancelOrder(orderId) {
           </div>
 
           <div class="section-label-container content mb-4">
-            <p>
-              <span class="section-label">Date</span>:
-              {{ new Date(order.createdAt).toLocaleString() }}
-            </p>
+            <p><span class="section-label">Date</span>: {{ order.createdDate }}</p>
             <p><span class="section-label">Payment Method</span>: {{ order.paymentMethod }}</p>
             <p><span class="section-label">Delivery Method</span>: {{ order.deliveryMethod }}</p>
             <p><span class="section-label">Subtotal</span>: ${{ order.subtotal.toFixed(2) }}</p>

@@ -1,6 +1,7 @@
 const readJsonFile = require('../utils/readJsonFile');
 const writeJsonFile = require('../utils/writeJsonFile');
 const generateId = require('../utils/generateId');
+const getDate = require('../utils/getDate');
 
 async function getItems() {
   return await readJsonFile('data/items.json');
@@ -19,8 +20,7 @@ async function createItem(data) {
     description: data.description,
     sellerName: data.sellerName || 'Anonymous',
     campusTag: data.campusTag,
-    createdAt: new Date().toISOString(),
-    featured: false,
+    createdDate: getDate(),
   };
 
   items.push(newItem);

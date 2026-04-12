@@ -1,6 +1,7 @@
 const readJsonFile = require('../utils/readJsonFile');
 const writeJsonFile = require('../utils/writeJsonFile');
 const generateId = require('../utils/generateId');
+const getDate = require('../utils/getDate');
 
 async function getCartItems() {
   return await readJsonFile('data/cart.json');
@@ -27,7 +28,7 @@ async function addCartItem(itemId, quantity = 1) {
     id: generateId(),
     itemId,
     quantity,
-    addedAt: new Date().toISOString(),
+    addedDate: getDate(),
   };
 
   cartItems.push(newCartItem);
