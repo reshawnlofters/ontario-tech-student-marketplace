@@ -9,7 +9,8 @@
     "description": "Black Adidas water bottle.",
     "sellerName": "Stacy R.",
     "campusTag": "North Oshawa Campus",
-    "createdDate": "4/3/2026, 1:00 PM"
+    "createdDate": "4/3/2026, 1:00 PM",
+    "stock": 1
   },
   {
     "id": "002",
@@ -21,7 +22,8 @@
     "description": "Wilson Evolution basketball.",
     "sellerName": "Jeremy D.",
     "campusTag": "North Oshawa Campus",
-    "createdDate": "4/3/2026, 1:00 PM"
+    "createdDate": "4/3/2026, 1:00 PM",
+    "stock": 5
   },
   {
     "id": "003",
@@ -33,7 +35,8 @@
     "description": "Red Jansport 1990s backpack.",
     "sellerName": "Conner T.",
     "campusTag": "Downtown Oshawa Campus",
-    "createdDate": "4/3/2026, 1:00 PM"
+    "createdDate": "4/3/2026, 1:00 PM",
+    "stock": 1
   },
   {
     "id": "004",
@@ -45,7 +48,8 @@
     "description": "TurboAnt M10 Pro scooter.",
     "sellerName": "Samantha L.",
     "campusTag": "North Oshawa Campus",
-    "createdDate": "4/3/2026, 1:00 PM"
+    "createdDate": "4/3/2026, 1:00 PM",
+    "stock": 1
   },
   {
     "id": "005",
@@ -57,18 +61,20 @@
     "description": "2019 Kawhi Leonard Jersey.",
     "sellerName": "Dylan F.",
     "campusTag": "North Oshawa Campus",
-    "createdDate": "4/3/2026, 1:00 PM"
+    "createdDate": "4/3/2026, 1:00 PM",
+    "stock": 1
   },
   {
     "id": "006",
     "title": "20-inch Gloss Black Rims",
     "category": "Car",
-    "condition": "Like New",
+    "condition": "New",
     "price": 120,
     "image": "./images/items/gloss-black-rim.webp",
     "description": "Set of 20-inch gloss black rims.",
     "sellerName": "Donovan L.",
     "campusTag": "Downtown Oshawa Campus",
-    "createdDate": "4/3/2026, 1:00 PM"
+    "createdDate": "4/3/2026, 1:00 PM",
+    "stock": 4
   }
 ]

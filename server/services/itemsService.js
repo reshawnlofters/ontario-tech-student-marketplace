@@ -21,6 +21,7 @@ async function createItem(data) {
     sellerName: data.sellerName || 'Anonymous',
     campusTag: data.campusTag,
     createdDate: getDate(),
+    stock: data.stock,
   };
 
   items.push(newItem);

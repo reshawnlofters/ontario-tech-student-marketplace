@@ -21,6 +21,7 @@ async function getCart(request, response) {
               image: item.image,
               description: item.description,
               sellerName: item.sellerName,
+              stock: item.stock,
             }
           : null,
         total: item ? item.price * cartItem.quantity : 0,
@@ -58,6 +59,10 @@ async function addItemToCart(request, response) {
       return response.status(404).json({ message: 'Item not found' });
     }
 
+    if (error.message === 'Cannot add more than available stock') {
+      return response.status(400).json({ message: error.message });
+    }
+
     response.status(500).json({ message: 'Failed to add item to cart' });
   }
 }
@@ -82,6 +87,14 @@ async function updateCart(request, response) {
   } catch (error) {
     if (error.message === 'Cart item not found') {
       return response.status(404).json({ message: 'Cart item not found' });
+    }
+
+    if (error.message === 'Item not found') {
+      return response.status(404).json({ message: 'Item not found' });
+    }
+
+    if (error.message === 'Cannot set quantity above available stock') {
+      return response.status(400).json({ message: error.message });
     }
 
     response.status(500).json({ message: 'Failed to update cart item' });

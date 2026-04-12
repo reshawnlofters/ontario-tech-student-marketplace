@@ -33,7 +33,7 @@ defineEmits(['update-quantity', 'remove-item'])
             :value="cartItem.quantity"
             @change="$emit('update-quantity', cartItem.id, Number($event.target.value))"
           >
-            <option v-for="value in 1" :key="value" :value="value">
+            <option v-for="value in cartItem.item.stock" :key="value" :value="value">
               {{ value }}
             </option>
           </select>

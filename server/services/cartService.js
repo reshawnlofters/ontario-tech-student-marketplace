@@ -10,18 +10,29 @@ async function getCartItems() {
 async function addCartItem(itemId, quantity = 1) {
   const cartItems = await readJsonFile('data/cart.json');
   const items = await readJsonFile('data/items.json');
-
   const existingItem = items.find((item) => item.id === itemId);
+
   if (!existingItem) {
     throw new Error('Item not found');
   }
 
+  const itemStock = Number(existingItem.stock) || 1;
   const existingCartItem = cartItems.find((item) => item.itemId === itemId);
 
   if (existingCartItem) {
-    existingCartItem.quantity += quantity;
+    const newQuantity = existingCartItem.quantity + quantity;
+
+    if (newQuantity > itemStock) {
+      throw new Error('Cannot add more than available stock');
+    }
+
+    existingCartItem.quantity = newQuantity;
     await writeJsonFile('data/cart.json', cartItems);
     return existingCartItem;
+  }
+
+  if (quantity > itemStock) {
+    throw new Error('Cannot add more than available stock');
   }
 
   const newCartItem = {
@@ -37,12 +48,25 @@ async function addCartItem(itemId, quantity = 1) {
   return newCartItem;
 }
 
-async function updateCartItem(cartItemId, quantity) {
+async function updateCartItem(cartId, quantity) {
   const cartItems = await readJsonFile('data/cart.json');
-  const cartItem = cartItems.find((item) => item.id === cartItemId);
+  const items = await readJsonFile('data/items.json');
+  const cartItem = cartItems.find((cartItem) => cartItem.id === cartId);
 
   if (!cartItem) {
     throw new Error('Cart item not found');
+  }
+
+  const existingItem = items.find((item) => item.id === cartItem.itemId);
+
+  if (!existingItem) {
+    throw new Error('Item not found');
+  }
+
+  const itemStock = Number(existingItem.stock) || 1;
+
+  if (quantity > itemStock) {
+    throw new Error('Cannot set quantity above available stock');
   }
 
   cartItem.quantity = quantity;
