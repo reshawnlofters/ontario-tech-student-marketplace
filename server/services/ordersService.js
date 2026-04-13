@@ -33,6 +33,7 @@ async function createOrder({ discountCode = '', paymentMethod, deliveryMethod })
       itemId: item.id,
       image: item.image,
       title: item.title,
+      category: item.category,
       price: item.price,
       quantity: cartItem.quantity,
       total: item.price * cartItem.quantity,

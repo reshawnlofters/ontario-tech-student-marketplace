@@ -2,11 +2,14 @@
 import { onMounted, ref } from 'vue'
 import { getOrders, cancelOrder } from '../services/ordersService'
 import flashMessage from '../utils/flashMessage'
+import OrderCategoriesModal from '../components/orders/OrderCategoriesModal.vue'
 
 const orders = ref([])
 const isLoading = ref(true)
 const successMessage = ref('')
 const errorMessage = ref('')
+const selectedOrder = ref(null)
+const isOrderCategoriesModalOpen = ref(false)
 
 async function loadOrders() {
   try {
@@ -36,6 +39,23 @@ async function handleCancelOrder(orderId) {
     const message = error.message || 'Failed to cancel order.'
     flashMessage(errorMessage, message)
   }
+}
+
+function openOrderCategoriesModal(orderId) {
+  const order = orders.value.find((order) => order.id === orderId)
+
+  if (!order) {
+    flashMessage(errorMessage, 'Unable to open order category chart.')
+    return
+  }
+
+  selectedOrder.value = order
+  isOrderCategoriesModalOpen.value = true
+}
+
+function closeOrderCategoriesModal() {
+  isOrderCategoriesModalOpen.value = false
+  selectedOrder.value = null
 }
 </script>
 
@@ -70,14 +90,22 @@ async function handleCancelOrder(orderId) {
 
       <div v-else>
         <div v-for="order in orders" :key="order.id" class="order-container box mb-5">
-          <div class="order-title-cancel-order-button-container">
+          <div class="order-title-buttons-container">
             <h2 class="order-title title"><span>Order ID</span>: {{ order.id }}</h2>
-            <button
-              class="cancel-order-button button is-danger is-light"
-              @click="handleCancelOrder(order.id)"
-            >
-              Cancel Order
-            </button>
+            <div class="order-categories-cancel-order-button-container">
+              <button
+                class="order-categories-button button"
+                @click="openOrderCategoriesModal(order.id)"
+              >
+                View Categories
+              </button>
+              <button
+                class="cancel-order-button button is-danger is-light"
+                @click="handleCancelOrder(order.id)"
+              >
+                Cancel Order
+              </button>
+            </div>
           </div>
 
           <div class="section-label-container content mb-4">
@@ -115,6 +143,12 @@ async function handleCancelOrder(orderId) {
           </div>
         </div>
       </div>
+
+      <OrderCategoriesModal
+        v-if="isOrderCategoriesModalOpen && selectedOrder"
+        :order="selectedOrder"
+        @close="closeOrderCategoriesModal"
+      />
     </div>
   </section>
 </template>
@@ -127,14 +161,20 @@ async function handleCancelOrder(orderId) {
   background-color: var(--otu-light-grey);
 }
 
-.order-title-cancel-order-button-container {
+.order-title-buttons-container {
   display: flex;
   justify-content: space-between;
   margin-bottom: 1.5rem;
 }
 
+.order-categories-button {
+  margin-right: 1rem;
+  background-color: var(--otu-orange);
+  border: 1px solid var(--otu-orange);
+  transition: 0.3s !important;
+}
+
 .cancel-order-button {
-  border: none;
   border: 1px solid #800019;
   transition: 0.3s !important;
 }
