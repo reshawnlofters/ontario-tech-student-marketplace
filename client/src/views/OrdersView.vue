@@ -94,16 +94,16 @@ function closeOrderCategoriesModal() {
             <h2 class="order-title title"><span>Order ID</span>: {{ order.id }}</h2>
             <div class="order-categories-cancel-order-button-container">
               <button
-                class="order-categories-button button"
-                @click="openOrderCategoriesModal(order.id)"
-              >
-                View Categories
-              </button>
-              <button
                 class="cancel-order-button button is-danger is-light"
                 @click="handleCancelOrder(order.id)"
               >
                 Cancel Order
+              </button>
+              <button
+                class="order-categories-button button"
+                @click="openOrderCategoriesModal(order.id)"
+              >
+                View Categories
               </button>
             </div>
           </div>
@@ -168,13 +168,13 @@ function closeOrderCategoriesModal() {
 }
 
 .order-categories-button {
-  margin-right: 1rem;
   background-color: var(--otu-orange);
   border: 1px solid var(--otu-orange);
   transition: 0.3s !important;
 }
 
 .cancel-order-button {
+  margin-right: 1rem;
   border: 1px solid #800019;
   transition: 0.3s !important;
 }

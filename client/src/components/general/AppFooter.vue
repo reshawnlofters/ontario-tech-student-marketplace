@@ -9,7 +9,7 @@
     <section class="footer-description-section">
       <p>
         <span>Ontario Tech Student Marketplace</span><br />
-        Buy and sell used student items at a fraction of the cost.
+        Shop unique items and great deals from Ontario Tech students.
       </p>
     </section>
   </footer>

@@ -1,6 +1,7 @@
 <script setup>
 import { onMounted, onBeforeUnmount } from 'vue'
 import { useRouter } from 'vue-router'
+import ButtonArrowIcon from '../general/ButtonArrowIcon.vue'
 import $ from 'jquery'
 
 const router = useRouter()
@@ -83,6 +84,7 @@ onBeforeUnmount(() => {
 
           <button class="list-an-item-button button is-light is-medium" @click="navigateToListItem">
             List an Item
+            <ButtonArrowIcon />
           </button>
         </div>
       </div>

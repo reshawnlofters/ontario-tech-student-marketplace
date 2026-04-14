@@ -1,4 +1,6 @@
 <script setup>
+import ButtonArrowIcon from '../general/ButtonArrowIcon.vue'
+
 defineProps({
   item: {
     type: Object,
@@ -33,7 +35,10 @@ const emit = defineEmits(['add-to-cart'])
           Add to Cart
         </button>
 
-        <button class="add-to-wishlist-button button">Save Item</button>
+        <button class="add-to-wishlist-button button">
+          Save Item
+          <ButtonArrowIcon />
+        </button>
       </div>
     </div>
   </div>

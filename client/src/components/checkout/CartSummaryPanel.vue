@@ -1,4 +1,6 @@
 <script setup>
+import ButtonArrowIcon from '../general/ButtonArrowIcon.vue'
+
 defineProps({
   subtotal: {
     type: Number,
@@ -35,6 +37,7 @@ defineEmits(['checkout'])
       @click="$emit('checkout')"
     >
       {{ isSubmitting ? 'Placing Order...' : 'Place Order' }}
+      <ButtonArrowIcon />
     </button>
   </div>
 </template>
