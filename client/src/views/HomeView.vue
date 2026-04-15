@@ -2,6 +2,7 @@
 import { computed, onMounted, ref } from 'vue'
 import { getItems } from '../services/itemsService'
 import { addItemToCart } from '../services/cartService'
+import { addItemToWishlist, getWishlist } from '../services/wishlistService'
 import HeroBanner from '../components/home/HeroBanner.vue'
 import ItemSearchBar from '../components/home/ItemSearchBar.vue'
 import ItemFilter from '../components/home/ItemFilter.vue'
@@ -15,10 +16,15 @@ const searchQuery = ref('')
 const selectedCategory = ref('')
 const successMessage = ref('')
 const cartErrorMessage = ref('')
+const wishlistSuccessMessage = ref('')
+const wishlistErrorMessage = ref('')
+const wishlistItemIds = ref([])
 
 onMounted(async () => {
   try {
-    items.value = await getItems()
+    const [marketplaceItems, wishlistItems] = await Promise.all([getItems(), getWishlist()])
+    items.value = marketplaceItems
+    wishlistItemIds.value = wishlistItems.map((wishlistItem) => wishlistItem.item.id)
   } catch (error) {
     errorMessage.value = 'Unable to load items.'
   } finally {
@@ -43,6 +49,10 @@ const filteredItems = computed(() => {
   })
 })
 
+function isWishlisted(itemId) {
+  return wishlistItemIds.value.includes(itemId)
+}
+
 async function handleAddItemToCart(item) {
   successMessage.value = ''
   cartErrorMessage.value = ''
@@ -53,6 +63,24 @@ async function handleAddItemToCart(item) {
   } catch (error) {
     const message = error.message || 'Failed to add item to the cart.'
     flashMessage(cartErrorMessage, message)
+  }
+}
+
+async function handleAddItemToWishlist(item) {
+  wishlistSuccessMessage.value = ''
+  wishlistErrorMessage.value = ''
+
+  if (isWishlisted(item.id)) {
+    return
+  }
+
+  try {
+    await addItemToWishlist(item.id)
+    wishlistItemIds.value = [...wishlistItemIds.value, item.id]
+    flashMessage(wishlistSuccessMessage, `${item.title} was saved to your wishlist.`)
+  } catch (error) {
+    const message = error.message || 'Failed to save item to your wishlist.'
+    flashMessage(wishlistErrorMessage, message)
   }
 }
 </script>
@@ -90,6 +118,18 @@ async function handleAddItemToCart(item) {
         </div>
       </Transition>
 
+      <Transition name="fade">
+        <div v-if="wishlistSuccessMessage" class="notification is-link is-light">
+          {{ wishlistSuccessMessage }}
+        </div>
+      </Transition>
+
+      <Transition name="fade">
+        <div v-if="wishlistErrorMessage" class="notification is-danger is-light">
+          {{ wishlistErrorMessage }}
+        </div>
+      </Transition>
+
       <div v-if="isLoadingFlag" class="notification is-info is-light">Loading items...</div>
 
       <div v-else-if="errorMessage" class="notification is-danger is-light">
@@ -111,7 +151,13 @@ async function handleAddItemToCart(item) {
             No items match your search or filter.
           </div>
 
-          <ItemGrid v-else :items="filteredItems" @add-to-cart="handleAddItemToCart" />
+          <ItemGrid
+            v-else
+            :items="filteredItems"
+            :wishlist-item-ids="wishlistItemIds"
+            @add-to-cart="handleAddItemToCart"
+            @add-to-wishlist="handleAddItemToWishlist"
+          />
         </section>
       </div>
     </div>

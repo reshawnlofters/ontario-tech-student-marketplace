@@ -6,9 +6,13 @@ defineProps({
     type: Object,
     required: true,
   },
+  isWishlisted: {
+    type: Boolean,
+    default: false,
+  },
 })
 
-const emit = defineEmits(['add-to-cart'])
+defineEmits(['add-to-cart', 'add-to-wishlist'])
 </script>
 
 <template>
@@ -35,9 +39,17 @@ const emit = defineEmits(['add-to-cart'])
           Add to Cart
         </button>
 
-        <button class="add-to-wishlist-button button">
-          Save Item
-          <ButtonArrowIcon />
+        <button
+          class="add-to-wishlist-button button"
+          :class="{ 'is-saved': isWishlisted }"
+          :disabled="isWishlisted"
+          @click="$emit('add-to-wishlist', item)"
+        >
+          <template v-if="isWishlisted">Saved</template>
+          <template v-else>
+            Save Item
+            <ButtonArrowIcon />
+          </template>
         </button>
       </div>
     </div>
@@ -98,5 +110,16 @@ const emit = defineEmits(['add-to-cart'])
   color: var(--otu-blue);
   background-color: white;
   border: 1px solid var(--otu-blue);
+}
+
+.add-to-wishlist-button.is-saved {
+  color: white;
+  background-color: var(--otu-blue);
+  border-color: var(--otu-blue);
+  opacity: 0.85;
+}
+
+.add-to-wishlist-button:disabled {
+  cursor: not-allowed;
 }
 </style>

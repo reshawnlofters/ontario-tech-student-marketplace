@@ -6,9 +6,13 @@ defineProps({
     type: Array,
     required: true,
   },
+  wishlistItemIds: {
+    type: Array,
+    default: () => [],
+  },
 })
 
-defineEmits(['add-to-cart'])
+defineEmits(['add-to-cart', 'add-to-wishlist'])
 </script>
 
 <template>
@@ -18,7 +22,12 @@ defineEmits(['add-to-cart'])
       :key="item.id"
       class="custom-grid-item column is-12-mobile is-6-tablet is-3-desktop"
     >
-      <ItemCard :item="item" @add-to-cart="$emit('add-to-cart', $event)" />
+      <ItemCard
+        :item="item"
+        :is-wishlisted="wishlistItemIds.includes(item.id)"
+        @add-to-cart="$emit('add-to-cart', $event)"
+        @add-to-wishlist="$emit('add-to-wishlist', $event)"
+      />
     </div>
   </div>
 </template>
