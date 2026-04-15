@@ -119,7 +119,7 @@ async function handleAddItemToWishlist(item) {
       </Transition>
 
       <Transition name="fade">
-        <div v-if="wishlistSuccessMessage" class="notification is-link is-light">
+        <div v-if="wishlistSuccessMessage" class="notification is-success is-light">
           {{ wishlistSuccessMessage }}
         </div>
       </Transition>
@@ -167,5 +167,6 @@ async function handleAddItemToWishlist(item) {
 <style scoped>
 .search-filter-container {
   background-color: var(--otu-light-grey);
+  border-radius: 0.75rem;
 }
 </style>

@@ -11,7 +11,9 @@
 
 body {
   margin: 0;
-  background-color: white;
+  background:
+    radial-gradient(circle at top left, rgb(0 119 202 / 10%), transparent 24rem),
+    linear-gradient(180deg, #fff, #f7fafc 42%, #fff);
   text-rendering: optimizelegibility !important;
   -webkit-font-smoothing: antialiased !important;
   -moz-osx-font-smoothing: grayscale !important;
@@ -50,6 +52,70 @@ button {
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0;
+}
+
+.wishlist-empty-state-container,
+.cart-empty-state-container,
+.orders-empty-state-container {
+  padding: 3rem !important;
+  text-align: center;
+  background-color: var(--otu-light-grey) !important;
+  border-radius: 0.75rem;
+}
+
+.wishlist-empty-state-title,
+.cart-empty-state-title,
+.orders-empty-state-title {
+  margin-bottom: 0.75rem;
+  font-family: Ubuntu, Arial, Helvetica, sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--otu-blue);
+}
+
+.wishlist-empty-state-message,
+.cart-empty-state-message,
+.orders-empty-state-message {
+  max-width: 35rem;
+  margin: 0 auto 1.5rem;
+  line-height: 1.75;
+}
+
+.browse-listings-button {
+  color: white !important;
+  background-color: var(--otu-orange) !important;
+  border: 1px solid var(--otu-orange) !important;
+}
+
+.search-filter-container,
+.item-card,
+.wishlist-empty-state-container,
+.wishlist-card,
+.cart-empty-state-container,
+.cart-item-container,
+.promo-code-box-container,
+.payment-details-container,
+.cart-summary-container,
+.order-container {
+  border: 1px solid rgb(0 60 113 / 10%);
+  box-shadow:
+    rgb(0 0 0 / 6%) 0 2px 8px 0,
+    rgb(0 0 0 / 4%) 0 2px 8px 0 !important;
+}
+
+.search-filter-container:hover,
+.item-card:hover,
+.wishlist-empty-state-container:hover,
+.wishlist-card:hover,
+.cart-empty-state-container:hover,
+.cart-item-container:hover,
+.promo-code-box-container:hover,
+.payment-details-container:hover,
+.cart-summary-container:hover,
+.order-container:hover {
+  box-shadow:
+    rgb(0 0 0 / 8%) 0 6px 16px 0,
+    rgb(0 0 0 / 4%) 0 0 6px 0 !important;
 }
 
 button {

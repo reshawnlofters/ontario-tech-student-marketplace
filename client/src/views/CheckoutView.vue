@@ -7,6 +7,7 @@ import CartItemRow from '../components/checkout/CartItemRow.vue'
 import CartSummaryPanel from '../components/checkout/CartSummaryPanel.vue'
 import PaymentDetailsPanel from '../components/checkout/PaymentDetailsPanel.vue'
 import PromoCodeBox from '../components/checkout/PromoCodeBox.vue'
+import ButtonArrowIcon from '@/components/general/ButtonArrowIcon.vue'
 import flashMessage from '../utils/flashMessage'
 
 const router = useRouter()
@@ -58,7 +59,7 @@ async function handleUpdateCartItemQuantity(cartItemId, quantity) {
 
   try {
     await updateCartItemQuantity(cartItemId, quantity)
-    flashMessage(successMessage, 'Cart item updated successfully.')
+    flashMessage(successMessage, 'Cart item updated.')
     await loadCart()
   } catch (error) {
     const message = error.message || 'Failed to update cart item.'
@@ -92,7 +93,7 @@ async function handleCheckout() {
       deliveryMethod: 'Campus Pickup',
     })
 
-    successMessage.value = 'Order placed successfully. Redirecting...'
+    successMessage.value = 'Order placed.'
 
     setTimeout(() => {
       router.push('/orders')
@@ -125,13 +126,21 @@ async function handleCheckout() {
 
       <div v-if="isLoading" class="notification is-info is-light">Loading cart...</div>
 
-      <div v-else-if="cartItems.length === 0" class="notification is-warning is-light">
-        Your cart is empty. Visit the
-        <RouterLink to="/">homepage</RouterLink> to browse listings.
+      <div v-else-if="cartItems.length === 0" class="cart-empty-state-container box">
+        <p class="cart-empty-state-title">Your cart is empty.</p>
+        <p class="cart-empty-state-message has-text-grey">
+          Browse the marketplace and add any items you want to order.
+        </p>
+        <RouterLink to="/">
+          <button class="browse-listings-button button">
+            Browse Listings
+            <ButtonArrowIcon />
+          </button>
+        </RouterLink>
       </div>
 
-      <div v-else class="columns is-align-start">
-        <div class="column is-8">
+      <div v-else class="checkout-containers-container columns is-align-start">
+        <div class="cart-item-row-container column is-8">
           <CartItemRow
             v-for="cartItem in cartItems"
             :key="cartItem.id"
@@ -141,7 +150,7 @@ async function handleCheckout() {
           />
         </div>
 
-        <div class="column is-4">
+        <div class="side-panel-container column is-4">
           <PromoCodeBox v-model="promoCode" />
           <PaymentDetailsPanel />
           <CartSummaryPanel
@@ -156,3 +165,20 @@ async function handleCheckout() {
     </div>
   </section>
 </template>
+
+<style scoped>
+@media screen and (width <= 1000px) {
+  .section {
+    padding: 3rem;
+  }
+
+  .checkout-containers-container {
+    display: grid;
+  }
+
+  .cart-item-row-container,
+  .side-panel-container {
+    width: 100%;
+  }
+}
+</style>

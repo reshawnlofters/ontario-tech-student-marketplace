@@ -23,7 +23,7 @@ async function addCartItem(itemId, quantity = 1) {
     const newQuantity = existingCartItem.quantity + quantity;
 
     if (newQuantity > itemStock) {
-      throw new Error('Cannot add more than available stock');
+      throw new Error('Cannot add more than available stock.');
     }
 
     existingCartItem.quantity = newQuantity;
@@ -32,7 +32,7 @@ async function addCartItem(itemId, quantity = 1) {
   }
 
   if (quantity > itemStock) {
-    throw new Error('Cannot add more than available stock');
+    throw new Error('Cannot add more than available stock.');
   }
 
   const newCartItem = {

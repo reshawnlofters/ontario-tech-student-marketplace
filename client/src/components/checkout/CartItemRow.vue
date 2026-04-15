@@ -63,7 +63,10 @@ defineEmits(['update-quantity', 'remove-item'])
   padding: 2rem;
   font-size: 1.125rem;
   color: black !important;
-  background-color: var(--otu-light-grey);
+  background:
+    linear-gradient(180deg, rgb(255 255 255 / 96%), rgb(255 255 255 / 100%)),
+    linear-gradient(135deg, rgb(4 42 75 / 8%), rgb(231 93 42 / 10%));
+  border-radius: 0.75rem;
 }
 
 .cart-item-image img {
@@ -87,12 +90,24 @@ defineEmits(['update-quantity', 'remove-item'])
 }
 
 .remove-cart-item-button {
-  width: 100%;
+  width: 11.5rem;
   border: 1px solid #800019;
   transition: 0.3s !important;
 }
 
 .remove-cart-item-button:hover {
   filter: none;
+}
+
+@media screen and (width <= 1410px) {
+  .remove-cart-item-button {
+    width: 100%;
+  }
+}
+
+@media screen and (width <= 780px) {
+  .cart-item-container {
+    height: auto;
+  }
 }
 </style>

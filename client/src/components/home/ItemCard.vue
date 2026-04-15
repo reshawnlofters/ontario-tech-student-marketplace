@@ -1,6 +1,4 @@
 <script setup>
-import ButtonArrowIcon from '../general/ButtonArrowIcon.vue'
-
 defineProps({
   item: {
     type: Object,
@@ -46,10 +44,7 @@ defineEmits(['add-to-cart', 'add-to-wishlist'])
           @click="$emit('add-to-wishlist', item)"
         >
           <template v-if="isWishlisted">Saved</template>
-          <template v-else>
-            Save Item
-            <ButtonArrowIcon />
-          </template>
+          <template v-else> Save Item </template>
         </button>
       </div>
     </div>
@@ -61,27 +56,36 @@ defineEmits(['add-to-cart', 'add-to-wishlist'])
   background-color: transparent;
 }
 
+.item-card {
+  border-radius: 0.75rem !important;
+}
+
 .card-image img {
   object-fit: cover;
 }
 
-.item-card {
-  color: black;
-}
-
 .card-content {
   font-size: 1.125rem;
-  background-color: var(--otu-light-grey) !important;
+  color: black;
+  background:
+    linear-gradient(180deg, rgb(255 255 255 / 96%), rgb(255 255 255 / 100%)),
+    linear-gradient(135deg, rgb(4 42 75 / 8%), rgb(231 93 42 / 10%));
+}
+
+.item-title,
+.item-price {
+  font-family: Ubuntu, Arial, Helvetica, sans-serif;
+  font-size: 1.125rem;
+  font-weight: bold;
 }
 
 .item-title {
-  font-size: 1.125rem;
-  font-weight: bold;
   color: var(--otu-blue);
 }
 
 .item-price {
   margin-bottom: 0.75rem;
+  color: var(--otu-orange);
 }
 
 .section-label-container {

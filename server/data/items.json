@@ -76,7 +76,8 @@
     "campusTag": "Downtown Oshawa Campus",
     "createdDate": "4/3/2026, 1:00 PM",
     "stock": 4
-  },{
+  },
+  {
     "id": "007",
     "title": "NVIDIA RTX 3060 Ti",
     "category": "Electronics",
@@ -89,7 +90,7 @@
     "createdDate": "4/13/2026, 2:15 PM",
     "stock": 1
   },
-  
+
   {
     "id": "008",
     "title": "Nike Hoodie",
@@ -102,7 +103,8 @@
     "campusTag": "Downtown Oshawa Campus",
     "createdDate": "4/14/2026, 3:45 PM",
     "stock": 1
-  },{
+  },
+  {
     "id": "009",
     "title": "Custom Notebooks",
     "category": "Stationery",
@@ -114,7 +116,8 @@
     "campusTag": "Downtown Oshawa Campus",
     "createdDate": "4/14/2026, 3:45 PM",
     "stock": 20
-  },{
+  },
+  {
     "id": "010",
     "title": "Custom 3D-Printed Laptop Stand",
     "category": "Accessories",
@@ -144,16 +147,16 @@
     "id": "012",
     "title": "Air Force 1s",
     "category": "Clothing",
-    "condition": "New",
+    "condition": "Good Condition",
     "price": 50,
     "image": "./images/items/shoes.jpg",
-    "description": "Never worn. Hit me up if you're interested. Size 11.",
+    "description": "A little worn. Hit me up if you're interested. Size 11.",
     "sellerName": "Peter T.",
     "campusTag": "North Oshawa Campus",
     "createdDate": "4/14/2026, 6:30 PM",
     "stock": 1
   },
-  
+
   {
     "id": "013",
     "title": "Web Development Textbook",
@@ -166,7 +169,8 @@
     "campusTag": "Downtown Oshawa Campus",
     "createdDate": "4/14/2026, 7:00 PM",
     "stock": 1
-  },{
+  },
+  {
     "id": "014",
     "title": "Mini Fridge",
     "category": "Appliances",
@@ -218,7 +222,6 @@
     "createdDate": "4/15/2026, 12:45 PM",
     "stock": 1
   },
- 
 
   {
     "id": "018",
@@ -311,5 +314,4 @@
     "createdDate": "4/16/2026, 6:15 PM",
     "stock": 1
   }
-  
 ]

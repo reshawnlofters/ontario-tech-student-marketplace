@@ -38,4 +38,22 @@
 .footer-description-section p span {
   font-weight: bold;
 }
+
+@media screen and (width <= 800px) {
+  .footer {
+    display: grid;
+    justify-content: center;
+    height: auto;
+    padding: 1rem 2.5rem;
+    text-align: center;
+  }
+
+  .footer-brand-section {
+    justify-content: center;
+  }
+
+  .footer-description-section {
+    padding-bottom: 1.5rem;
+  }
+}
 </style>

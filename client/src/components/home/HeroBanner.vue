@@ -55,7 +55,7 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <section class="hero-banner box mb-6">
+  <section class="homepage-hero box">
     <div class="columns is-vcentered is-variable is-6">
       <div class="column is-7">
         <p class="hero-tag">Ontario Tech Student Marketplace</p>
@@ -116,16 +116,17 @@ onBeforeUnmount(() => {
 </template>
 
 <style scoped>
-.hero-banner {
+.homepage-hero {
   position: relative;
   padding: 2.5rem;
+  margin-bottom: 3rem;
   overflow: hidden;
   color: white;
   background: linear-gradient(135deg, #0b2e4f 0%, #123f6b 55%, #1b5e91 100%);
   border-radius: 0.75rem;
 }
 
-.hero-banner .page-title {
+.homepage-hero .page-title {
   color: white !important;
 }
 
@@ -161,7 +162,7 @@ onBeforeUnmount(() => {
   margin-bottom: 1.5rem !important;
   background-color: rgb(255 255 255 / 14%);
   border: 1px solid rgb(255 255 255 / 18%);
-  border-radius: 1.125rem;
+  border-radius: 1rem;
 }
 
 #promo-message-text {
@@ -173,11 +174,6 @@ onBeforeUnmount(() => {
 .list-an-item-button {
   padding: 0.75rem 1.125rem;
   font-size: 1.125rem;
-}
-
-.browse-listings-button {
-  color: white;
-  background-color: var(--otu-orange);
 }
 
 .list-an-item-button {
@@ -196,7 +192,7 @@ onBeforeUnmount(() => {
   padding: 1rem;
   color: #1f2937;
   background: white;
-  border-radius: 1rem;
+  border-radius: 0.75rem;
   box-shadow: 0 16px 32px rgb(0 0 0 / 25%);
 }
 

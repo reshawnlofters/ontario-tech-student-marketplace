@@ -1,8 +1,9 @@
 <script setup>
 import { onMounted, ref } from 'vue'
 import { getOrders, cancelOrder } from '../services/ordersService'
-import flashMessage from '../utils/flashMessage'
 import OrderCategoriesModal from '../components/orders/OrderCategoriesModal.vue'
+import ButtonArrowIcon from '@/components/general/ButtonArrowIcon.vue'
+import flashMessage from '../utils/flashMessage'
 
 const orders = ref([])
 const isLoading = ref(true)
@@ -33,7 +34,7 @@ async function handleCancelOrder(orderId) {
 
   try {
     await cancelOrder(orderId)
-    flashMessage(successMessage, 'Order cancelled successfully.')
+    flashMessage(successMessage, 'Order cancelled.')
     await loadOrders()
   } catch (error) {
     const message = error.message || 'Failed to cancel order.'
@@ -83,9 +84,17 @@ function closeOrderCategoriesModal() {
         {{ errorMessage }}
       </div>
 
-      <div v-else-if="orders.length === 0" class="notification is-warning is-light">
-        You haven't placed any orders yet. Visit the
-        <RouterLink to="/">homepage</RouterLink> to browse listings.
+      <div v-else-if="orders.length === 0" class="orders-empty-state-container box">
+        <p class="orders-empty-state-title">You have no orders.</p>
+        <p class="orders-empty-state-message has-text-grey">
+          Browse the marketplace and order any items.
+        </p>
+        <RouterLink to="/">
+          <button class="browse-listings-button button">
+            Browse Listings
+            <ButtonArrowIcon />
+          </button>
+        </RouterLink>
       </div>
 
       <div v-else>
@@ -94,16 +103,16 @@ function closeOrderCategoriesModal() {
             <h2 class="order-title title"><span>Order ID</span>: {{ order.id }}</h2>
             <div class="order-categories-cancel-order-button-container">
               <button
-                class="cancel-order-button button is-danger is-light"
-                @click="handleCancelOrder(order.id)"
-              >
-                Cancel Order
-              </button>
-              <button
                 class="order-categories-button button"
                 @click="openOrderCategoriesModal(order.id)"
               >
                 View Categories
+              </button>
+              <button
+                class="cancel-order-button button is-danger is-light"
+                @click="handleCancelOrder(order.id)"
+              >
+                Cancel Order
               </button>
             </div>
           </div>
@@ -164,17 +173,17 @@ function closeOrderCategoriesModal() {
 .order-title-buttons-container {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2.5rem;
 }
 
 .order-categories-button {
+  margin-right: 1rem;
   background-color: var(--otu-orange);
   border: 1px solid var(--otu-orange);
   transition: 0.3s !important;
 }
 
 .cancel-order-button {
-  margin-right: 1rem;
   border: 1px solid #800019;
   transition: 0.3s !important;
 }
@@ -198,9 +207,21 @@ function closeOrderCategoriesModal() {
   grid-template-columns: auto auto auto;
 }
 
+.order-item-table-container,
+.order-item-table {
+  border-radius: 0.75rem;
+}
+
+.order-item-table-container {
+  background-color: white;
+  border: 1px solid rgb(0 60 113 / 10%);
+  box-shadow:
+    rgb(0 0 0 / 3%) 0 1px 4px 0,
+    rgb(0 0 0 / 2%) 0 1px 4px 0;
+}
+
 .order-item-table {
   background-color: white;
-  border-radius: 0.75rem;
 }
 
 .order-item-table th,
@@ -224,5 +245,34 @@ td {
   height: 100px;
   object-fit: cover;
   border-radius: 0.375rem;
+}
+
+@media screen and (width <= 1220px) {
+  .section-label-container {
+    grid-template-columns: auto auto;
+  }
+}
+
+@media screen and (width <= 850px) {
+  .section-label-container {
+    grid-template-columns: auto;
+  }
+
+  .order-item-table-container,
+  .order-item-table {
+    display: none;
+  }
+}
+
+@media screen and (width <= 750px) {
+  .order-categories-button {
+    display: none;
+  }
+}
+
+@media screen and (width <= 660px) {
+  .order-title-buttons-container {
+    flex-direction: column;
+  }
 }
 </style>

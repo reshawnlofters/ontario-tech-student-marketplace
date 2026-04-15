@@ -143,14 +143,14 @@ watch(
 .order-categories-modal-content-container {
   width: 650px;
   max-width: 90vw;
-  padding: 1.5rem;
+  padding: 2rem;
   background: white;
-  border-radius: 16px;
+  border-radius: 1rem;
   box-shadow: 0 24px 48px rgb(0 0 0 / 25%);
 }
 
 .order-categories-modal-title {
-  font-family: Ubuntu, Arial, Helvetica, sans-serif !important;
+  font-family: Ubuntu, Arial, Helvetica, sans-serif;
   color: var(--otu-blue);
 }
 
@@ -174,5 +174,12 @@ watch(
   align-items: center;
   justify-content: center;
   background-color: rgb(0 0 0 / 25%);
+}
+
+@media screen and (width <= 750px) {
+  .modal-order-categories-modal-overlay,
+  .order-categories-modal-content-container {
+    display: none;
+  }
 }
 </style>

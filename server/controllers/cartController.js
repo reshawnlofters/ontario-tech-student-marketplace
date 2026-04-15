@@ -51,7 +51,7 @@ async function addItemToCart(request, response) {
     const cartItem = await cartService.addCartItem(itemId, parsedQuantity);
 
     response.status(201).json({
-      message: 'Item added to cart successfully',
+      message: 'Item added to cart',
       cartItem,
     });
   } catch (error) {
@@ -59,7 +59,7 @@ async function addItemToCart(request, response) {
       return response.status(404).json({ message: 'Item not found' });
     }
 
-    if (error.message === 'Cannot add more than available stock') {
+    if (error.message === 'Cannot add more than available stock.') {
       return response.status(400).json({ message: error.message });
     }
 

@@ -45,4 +45,26 @@
 .navbar-menu-item:hover {
   color: var(--otu-orange);
 }
+
+@media screen and (width <= 700px) {
+  .navbar {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    text-align: center;
+  }
+
+  .navbar-menu-section {
+    padding-bottom: 1.5rem;
+  }
+}
+
+@media screen and (width <= 500px) {
+  .navbar-menu-section {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    align-items: center;
+  }
+}
 </style>
