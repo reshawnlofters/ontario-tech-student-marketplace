@@ -1,0 +1,24 @@
+Reshawn Lofters:
+- Contributed to concept and system design planning
+- Added project directory structure and placeholder files
+- Implemented items API and homepage structure and styling
+- Implemented cart API and checkout page structure and styling
+- Implemented orders API and orders page structure and styling
+- Recorded introduction video
+
+Muneeb Bhatti:
+- Contributed to concept and system design planning
+- Created marketplace item listings
+- Populated items array with item listing objects
+
+Brian Husted:
+- Contributed to concept and system design planning
+- Implemented list item page structure
+- Implemented list item page styling
+
+Saad Siddiqui:
+- Contributed to concept and system design planning
+- Implemented wish list API
+- Implemented wish list page structure
+- Implemented wish list page styling
+- Added homepage styling
