@@ -91,6 +91,7 @@ button {
 .item-card,
 .wishlist-empty-state-container,
 .wishlist-card,
+.list-item-form-container,
 .cart-empty-state-container,
 .cart-item-container,
 .promo-code-box-container,
@@ -107,6 +108,7 @@ button {
 .item-card:hover,
 .wishlist-empty-state-container:hover,
 .wishlist-card:hover,
+.list-item-form-container:hover,
 .cart-empty-state-container:hover,
 .cart-item-container:hover,
 .promo-code-box-container:hover,
@@ -132,6 +134,13 @@ button:hover {
 input,
 select {
   height: 44px !important;
+}
+
+input:focus,
+select:focus,
+.list-item-form-textarea:focus {
+  border-color: var(--otu-light-blue) !important;
+  box-shadow: 0 0 0 0.125em rgb(0 119 202 / 12%) !important;
 }
 
 a {

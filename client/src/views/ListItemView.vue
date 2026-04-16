@@ -45,12 +45,20 @@ function validateForm() {
     return 'Please complete all fields before listing your item.'
   }
 
+  if (form.title.length > 50) {
+    return 'Item title cannot exceed 50 characters.'
+  }
+
   if (!Number.isFinite(Number(form.price)) || Number(form.price) <= 0) {
     return 'Price must be a positive number.'
   }
 
   if (!Number.isInteger(Number(form.stock)) || Number(form.stock) <= 0) {
     return 'Stock must be a whole number greater than 0.'
+  }
+
+  if (form.description.length > 125) {
+    return 'Item description cannot exceed 125 characters.'
   }
 
   return ''
@@ -82,7 +90,7 @@ async function handleSubmit() {
       stock: Number(form.stock),
     })
 
-    successMessage.value = 'Your item was listed successfully.'
+    successMessage.value = 'Your item was listed.'
 
     Object.assign(form, getInitialFormState())
 
@@ -100,12 +108,14 @@ async function handleSubmit() {
 <template>
   <section class="section list-item-view">
     <div class="container">
-      <div class="list-item-header mb-5">
-        <p class="section-title">Marketplace Seller Form</p>
-        <h1 class="page-title title is-2">List an Item</h1>
-        <p class="list-item-subtitle">
-          Add a new item to the marketplace by filling in the details below.
-        </p>
+      <div class="list-item-hero box">
+        <div>
+          <p class="list-item-hero-eyebrow">List an Item</p>
+          <h1 class="page-title title is-2">Seller Form</h1>
+          <p class="list-item-hero-subtitle">
+            List a new item on the marketplace by filling out the details below.
+          </p>
+        </div>
       </div>
 
       <Transition name="fade">
@@ -120,7 +130,7 @@ async function handleSubmit() {
         </div>
       </Transition>
 
-      <div class="box list-item-form-box">
+      <div class="list-item-form-container box">
         <form @submit.prevent="handleSubmit">
           <div class="columns is-multiline">
             <div class="column is-12">
@@ -131,7 +141,7 @@ async function handleSubmit() {
                     v-model.trim="form.title"
                     class="input"
                     type="text"
-                    placeholder="e.g. Graphing Calculator"
+                    placeholder="E.g., Graphing Calculator"
                     maxlength="100"
                   />
                 </div>
@@ -168,11 +178,9 @@ async function handleSubmit() {
                     <select v-model="form.condition">
                       <option disabled value="">Select condition</option>
                       <option>New</option>
-                      <option>Like New</option>
                       <option>Great Condition</option>
                       <option>Good Condition</option>
                       <option>Fair Condition</option>
-                      <option>Used</option>
                     </select>
                   </div>
                 </div>
@@ -189,7 +197,7 @@ async function handleSubmit() {
                     type="number"
                     min="1"
                     step="0.01"
-                    placeholder="e.g. 25"
+                    placeholder="E.g., 25"
                   />
                 </div>
               </div>
@@ -205,7 +213,7 @@ async function handleSubmit() {
                     type="number"
                     min="1"
                     step="1"
-                    placeholder="e.g. 1"
+                    placeholder="E.g., 1"
                   />
                 </div>
               </div>
@@ -213,17 +221,17 @@ async function handleSubmit() {
 
             <div class="column is-12">
               <div class="field">
-                <label class="label section-label">Image Path or URL</label>
+                <label class="label section-label">Image URL</label>
                 <div class="control">
                   <input
                     v-model.trim="form.image"
                     class="input"
                     type="text"
-                    placeholder="./images/items/basketball.jpg"
+                    placeholder="https://example.com/item.jpg"
                   />
                 </div>
                 <p class="help list-item-help">
-                  Use a project image path or a direct image URL.
+                  Use a direct image URL ending in .jpg, .png, or .webp
                 </p>
               </div>
             </div>
@@ -237,7 +245,7 @@ async function handleSubmit() {
                     class="input"
                     type="text"
                     maxlength="60"
-                    placeholder="e.g. Brian H."
+                    placeholder="E.g., Brian H."
                   />
                 </div>
               </div>
@@ -245,7 +253,7 @@ async function handleSubmit() {
 
             <div class="column is-12-tablet is-6-desktop">
               <div class="field">
-                <label class="label section-label">Campus Tag</label>
+                <label class="label section-label">Campus Pickup Location</label>
                 <div class="control">
                   <div class="select is-fullwidth">
                     <select v-model="form.campusTag">
@@ -264,18 +272,18 @@ async function handleSubmit() {
                 <div class="control">
                   <textarea
                     v-model.trim="form.description"
-                    class="textarea list-item-textarea"
+                    class="textarea list-item-form-textarea"
                     maxlength="500"
-                    placeholder="Describe the item, key details, and condition..."
+                    placeholder="Describe the item..."
                   />
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="list-item-actions">
+          <div class="list-item-buttons-container">
             <button
-              class="button reset-button"
+              class="reset-form-button button"
               type="button"
               :disabled="isSubmitting"
               @click="resetForm"
@@ -284,7 +292,7 @@ async function handleSubmit() {
             </button>
 
             <button
-              class="button submit-button"
+              class="submit-form-button button"
               type="submit"
               :class="{ 'is-loading': isSubmitting }"
               :disabled="isSubmitting"
@@ -299,57 +307,66 @@ async function handleSubmit() {
 </template>
 
 <style scoped>
-
-.section-label,
-.label.section-label {
-  color: var(--otu-blue) !important;
-  font-weight: 600;
-}
-
-.list-item-view {
-  padding-top: 2rem;
-  padding-bottom: 3rem;
-}
-
-.list-item-header {
-  max-width: 760px;
-}
-
-.list-item-subtitle {
-  max-width: 700px;
-  color: rgb(74 74 74);
-  line-height: 1.6;
-}
-
-.list-item-form-box {
+.list-item-hero {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 12.5rem;
   padding: 2rem;
-  background-color: white;
-  border: 1px solid rgb(0 60 113 / 10%);
-  border-radius: 0.5rem;
-  box-shadow: 0 8px 24px rgb(4 42 75 / 8%);
+  margin-bottom: 3rem;
+  background:
+    linear-gradient(135deg, rgb(4 42 75 / 98%), rgb(0 60 113 / 92%)),
+    linear-gradient(135deg, rgb(231 93 42 / 28%), transparent 55%);
+  border-radius: 0.75rem;
+  box-shadow: 0 24px 48px rgb(4 42 75 / 16%);
 }
 
-.label {
+.list-item-hero-eyebrow {
+  margin: 0;
+  margin-bottom: 0.75rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: white;
+  color: rgb(255 255 255 / 72%);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.list-item-hero-subtitle {
+  max-width: 48rem;
+  line-height: 1.7;
+  color: rgb(255 255 255 / 86%);
+}
+
+.list-item-hero .page-title {
+  color: white !important;
+}
+
+.list-item-form-container {
+  padding: 2rem;
+  background-color: var(--otu-light-grey);
+  border-radius: 0.75rem;
+}
+
+.section-label {
   margin-bottom: 0.5rem;
+  color: var(--otu-blue) !important;
 }
 
-.input,
-.select select,
-.list-item-textarea {
-  color: #222;
+input,
+select,
+.list-item-form-textarea {
+  color: black;
   background-color: white;
   border: 1px solid var(--otu-input-border);
-  box-shadow: none;
 }
 
-.input:focus,
-.select select:focus,
-.list-item-textarea:focus {
-  border-color: var(--otu-light-blue);
-  box-shadow: 0 0 0 0.125em rgb(0 119 202 / 12%);
+::placeholder {
+  color: gray;
 }
 
-.list-item-textarea {
+.list-item-form-textarea {
   min-height: 140px;
   padding-top: 0.875rem;
   resize: vertical;
@@ -357,38 +374,44 @@ async function handleSubmit() {
 
 .list-item-help {
   margin-top: 0.35rem;
+  font-size: 0.85rem;
   color: rgb(107 114 128);
 }
 
-.list-item-actions {
+.list-item-buttons-container {
   display: flex;
-  justify-content: flex-end;
   gap: 0.9rem;
+  justify-content: flex-end;
   margin-top: 1.5rem;
 }
 
-.reset-button {
+.reset-form-button,
+.submit-form-button {
+  padding: 0.75rem 1.125rem;
+}
+
+.reset-form-button {
   color: var(--otu-blue);
   background-color: white;
   border: 1px solid var(--otu-blue);
 }
 
-.submit-button {
+.submit-form-button {
   color: white;
   background-color: var(--otu-light-blue);
   border: 1px solid var(--otu-light-blue);
 }
 
 @media screen and (width <= 768px) {
-  .list-item-form-box {
+  .list-item-form-container {
     padding: 1.25rem;
   }
 
-  .list-item-actions {
+  .list-item-buttons-container {
     flex-direction: column;
   }
 
-  .list-item-actions .button {
+  .list-item-buttons-container .button {
     width: 100%;
   }
 }

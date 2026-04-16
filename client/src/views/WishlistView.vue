@@ -71,16 +71,16 @@ async function handleRemoveWishlistItem(wishlistItemId) {
     <div class="container">
       <div class="wishlist-hero box">
         <div>
-          <p class="wishlist-eyebrow">Saved for later</p>
+          <p class="wishlist-hero-eyebrow">Saved for later</p>
           <h1 class="page-title title is-2">Wishlist</h1>
-          <p class="wishlist-subtitle">
+          <p class="wishlist-hero-subtitle">
             Keep track of your favourite listings and move them to your cart when your ready.
           </p>
         </div>
 
-        <div class="wishlist-summary">
-          <p class="wishlist-summary-label">Saved Items</p>
-          <p class="wishlist-summary-count">{{ wishlistCount }}</p>
+        <div class="wishlist-hero-summary-container">
+          <p class="wishlist-hero-summary-label">Saved Items</p>
+          <p class="wishlist-hero-summary-count">{{ wishlistCount }}</p>
         </div>
       </div>
 
@@ -132,6 +132,7 @@ async function handleRemoveWishlistItem(wishlistItemId) {
   gap: 2rem;
   align-items: center;
   justify-content: space-between;
+  min-height: 12.5rem;
   padding: 2rem;
   margin-bottom: 3rem;
   background:
@@ -141,15 +142,15 @@ async function handleRemoveWishlistItem(wishlistItemId) {
   box-shadow: 0 24px 48px rgb(4 42 75 / 16%);
 }
 
-.wishlist-eyebrow,
-.wishlist-subtitle,
-.wishlist-summary-label,
-.wishlist-summary-count {
+.wishlist-hero-eyebrow,
+.wishlist-hero-subtitle,
+.wishlist-hero-summary-label,
+.wishlist-hero-summary-count {
   margin: 0;
   color: white;
 }
 
-.wishlist-eyebrow {
+.wishlist-hero-eyebrow {
   margin-bottom: 0.75rem;
   font-size: 0.9rem;
   font-weight: 700;
@@ -158,7 +159,7 @@ async function handleRemoveWishlistItem(wishlistItemId) {
   letter-spacing: 0.12em;
 }
 
-.wishlist-subtitle {
+.wishlist-hero-subtitle {
   max-width: 48rem;
   line-height: 1.7;
   color: rgb(255 255 255 / 86%);
@@ -168,7 +169,7 @@ async function handleRemoveWishlistItem(wishlistItemId) {
   color: white !important;
 }
 
-.wishlist-summary {
+.wishlist-hero-summary-container {
   min-width: 180px;
   padding: 1.4rem;
   text-align: center;
@@ -178,13 +179,13 @@ async function handleRemoveWishlistItem(wishlistItemId) {
   backdrop-filter: blur(10px);
 }
 
-.wishlist-summary-label {
+.wishlist-hero-summary-label {
   margin-bottom: 0.35rem;
   font-size: 0.9rem;
   color: rgb(255 255 255 / 72%);
 }
 
-.wishlist-summary-count {
+.wishlist-hero-summary-count {
   font-family: Ubuntu, Arial, Helvetica, sans-serif;
   font-size: 2.5rem;
   font-weight: 800;
@@ -201,7 +202,7 @@ async function handleRemoveWishlistItem(wishlistItemId) {
     align-items: start;
   }
 
-  .wishlist-summary {
+  .wishlist-hero-summary-container {
     width: 100%;
   }
 

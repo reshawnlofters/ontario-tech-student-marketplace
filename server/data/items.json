@@ -58,7 +58,7 @@
     "condition": "Great Condition",
     "price": 30,
     "image": "./images/items/toronto-raptors-jersey.webp",
-    "description": "2019 Kawhi Leonard Jersey.",
+    "description": "2019 Kawhi Leonard Jersey. Size L. I wore it twice. ",
     "sellerName": "Dylan F.",
     "campusTag": "North Oshawa Campus",
     "createdDate": "4/3/2026, 1:00 PM",
@@ -90,7 +90,6 @@
     "createdDate": "4/13/2026, 2:15 PM",
     "stock": 1
   },
-
   {
     "id": "008",
     "title": "Nike Hoodie",
@@ -147,7 +146,7 @@
     "id": "012",
     "title": "Air Force 1s",
     "category": "Clothing",
-    "condition": "Good Condition",
+    "condition": "Fair Condition",
     "price": 50,
     "image": "./images/items/shoes.jpg",
     "description": "A little worn. Hit me up if you're interested. Size 11.",
@@ -156,7 +155,6 @@
     "createdDate": "4/14/2026, 6:30 PM",
     "stock": 1
   },
-
   {
     "id": "013",
     "title": "Web Development Textbook",
@@ -213,7 +211,7 @@
     "id": "017",
     "title": "Denim Jeans",
     "category": "Clothing",
-    "condition": "New",
+    "condition": "Great Condition",
     "price": 50,
     "image": "./images/items/jeans.jpg",
     "description": "Old pair of jeans in great quality. Size Medium.",
@@ -222,7 +220,6 @@
     "createdDate": "4/15/2026, 12:45 PM",
     "stock": 1
   },
-
   {
     "id": "018",
     "title": "Noise Cancelling Headphones",
