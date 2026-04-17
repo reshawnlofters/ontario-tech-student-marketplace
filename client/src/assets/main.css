@@ -97,6 +97,7 @@ button {
 .promo-code-box-container,
 .payment-details-container,
 .cart-summary-container,
+.orders-empty-state-container,
 .order-container {
   border: 1px solid rgb(0 60 113 / 10%);
   box-shadow:
@@ -114,6 +115,7 @@ button {
 .promo-code-box-container:hover,
 .payment-details-container:hover,
 .cart-summary-container:hover,
+.orders-empty-state-container:hover,
 .order-container:hover {
   box-shadow:
     rgb(0 0 0 / 8%) 0 6px 16px 0,

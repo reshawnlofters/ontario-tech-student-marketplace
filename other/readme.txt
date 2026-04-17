@@ -1,27 +1,43 @@
 Ontario Tech Student Marketplace (OTSM)
 
-Group Members: 
-- Reshawn Lofters
-- Brian Husted
-- Muneeb Bhatti
-- Saad Siddiqui
+Project Overview:
+OTSM is a campus marketplace where Ontario Tech University students can list, browse, save, and purchase items 
+sold by fellow students, including used items and products offered by student sellers. It was developed as a 
+full-stack web application using Vue.js, Node.js, Express.js, Bulma CSS, jQuery, AJAX, and D3.js.
 
-Running the Application:
+How to Run the Application:
 
-You must have two terminals running simultaneously for both the backend and the frontend.
+Prerequisites:
+- Node.js installed
+- npm installed
 
-1. BACKEND:
-   In the /server terminal, run:
+After extracting the project ZIP, open the project folder in your terminal or code editor.
+Two terminals must be running simultaneously: one for the backend server and one for the frontend client.
+
+1. BACKEND SERVER
+- Open the first terminal
+- Enter:
+   cd server
+   npm install
    node server.js
-   (The API will start running on http://localhost:3000)
+- The backend API will run on: http://localhost:3000
 
-2. FRONTEND:
-   In the /client terminal, run:
+2. FRONTEND CLIENT
+- Open the second terminal
+- Enter:
+   cd client
+   npm install
    npm run dev
-   (The terminal will start running on http://localhost:5173/)
+- The frontend application will run on: http://localhost:5173/
 
-3. Open the link provided by the client terminal in your web browser.
+3. OPEN THE APPLICATION
+- Open the frontend URL in your browser: http://localhost:5173/
+- The frontend communicates with the backend API automatically.
 
+Important Notes:
+- Both terminals must remain running while using the application.
+- If npm install has already been completed, it does not need to be repeated.
+- If port 3000 or 5173 is already in use, close other applications using those ports and restart.
 
 Resources:
-- Website design is inspired by Ontario Tech University (https://ontariotechu.ca).
+The visual design of this project took inspiration from the official Ontario Tech University website: https://ontariotechu.ca

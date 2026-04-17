@@ -64,7 +64,7 @@ function validateForm() {
   return ''
 }
 
-async function handleSubmit() {
+async function handleFormSubmission() {
   successMessage.value = ''
   errorMessage.value = ''
 
@@ -131,7 +131,7 @@ async function handleSubmit() {
       </Transition>
 
       <div class="list-item-form-container box">
-        <form @submit.prevent="handleSubmit">
+        <form @submit.prevent="handleFormSubmission">
           <div class="columns is-multiline">
             <div class="column is-12">
               <div class="field">
@@ -275,7 +275,7 @@ async function handleSubmit() {
                     class="textarea list-item-form-textarea"
                     maxlength="500"
                     placeholder="Describe the item..."
-                  />
+                  ></textarea>
                 </div>
               </div>
             </div>
@@ -288,7 +288,7 @@ async function handleSubmit() {
               :disabled="isSubmitting"
               @click="resetForm"
             >
-              Reset
+              Reset Form
             </button>
 
             <button
